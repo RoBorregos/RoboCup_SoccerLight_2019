@@ -1,5 +1,5 @@
-int MUX (bool a, bool b, bool c) {
-
+int MUX(bool a, bool b, bool c)
+{
   digitalWrite(s0, a);
   digitalWrite(s1, b);
   digitalWrite(s2, c);
@@ -9,11 +9,10 @@ int MUX (bool a, bool b, bool c) {
   delayMicroseconds(50);
   
   return Com;
- 
-   
-    }
+}
 
-void linea() {
+void linea()
+{
   PRs[0] = MUX(0, 0, 0);
   PRs[1] = MUX(0, 0, 1);
   PRs[2] = MUX(0, 1, 0);
@@ -29,5 +28,4 @@ void linea() {
   PRs[12] = analogRead(pr12);
   PRs[13] = analogRead(pr13);
   PRs[14] = analogRead(pr14);
-
-  }
+}
