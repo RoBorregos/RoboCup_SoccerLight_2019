@@ -10,6 +10,9 @@ int s0 = 0;
 int s1 = 0;
 int s2 = 0;
 
+//Variables for the MUX function
+bool a,b, c;
+
 //Pins of the PR
 int pr8 = A1;
 int pr9 = A2;
