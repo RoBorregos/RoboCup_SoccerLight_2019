@@ -5,10 +5,10 @@ int MUX(bool a, bool b, bool c)
   digitalWrite(s2, c);
   delayMicroseconds(1);
   
-  analogRead(Com);
+  analogRead(com);
   delayMicroseconds(50);
   
-  return Com;
+  return com;
 }
 
 void linea()

@@ -3,15 +3,12 @@ INICIALIZAR EL PROGRAMA YA QUE ELE VALOR DE CADA FOTORESISTENCIA SEA EL VALOR IN
 */
 
 //MUX OUTPUT
-const int Com = A0;
+const int com = A0;
 
 //MUX INPUT
 int s0 = 0;
 int s1 = 0;
 int s2 = 0;
-
-//Variables for the MUX function
-bool a,b, c;
 
 //Pins of the PR
 int pr8 = A1;
@@ -36,7 +33,7 @@ void setup()
   pinMode(s2, OUTPUT);
 
   //Set Com to OUTPUT
-  pinMode(Com, INPUT);
+  pinMode(com, INPUT);
 } 
 
 void loop()
