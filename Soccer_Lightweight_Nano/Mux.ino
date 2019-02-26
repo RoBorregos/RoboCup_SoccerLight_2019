@@ -14,31 +14,20 @@ int MUX (bool a, bool b, bool c) {
     }
 
 void linea() {
-  fotos[0] = MUX(0, 0, 0);
-  fotos[1] = MUX(0, 0, 1);
-  fotos[2] = MUX(0, 1, 0);
-  fotos[3] = MUX(0, 1, 1);
-  fotos[4] = MUX(1, 0, 0);
-  fotos[5] = MUX(1, 0, 1);
-  fotos[6] = MUX(1, 1, 0);
-  fotos[7] = MUX(1, 1, 1);
-  fotos[8] = analogRead(fr8); 
-  fotos[9] = analogRead(fr9);
-  fotos[10] = analogRead(fr10);
-  fotos[11] = analogRead(fr11);
-  fotos[12] = analogRead(fr12);
-  fotos[13] = analogRead(fr13);
-  fotos[14] = analogRead(fr14);
+  PRs[0] = MUX(0, 0, 0);
+  PRs[1] = MUX(0, 0, 1);
+  PRs[2] = MUX(0, 1, 0);
+  PRs[3] = MUX(0, 1, 1);
+  PRs[4] = MUX(1, 0, 0);
+  PRs[5] = MUX(1, 0, 1);
+  PRs[6] = MUX(1, 1, 0);
+  PRs[7] = MUX(1, 1, 1);
+  PRs[8] = analogRead(pr8); 
+  PRs[9] = analogRead(pr9);
+  PRs[10] = analogRead(pr10);
+  PRs[11] = analogRead(pr11);
+  PRs[12] = analogRead(pr12);
+  PRs[13] = analogRead(pr13);
+  PRs[14] = analogRead(pr14);
 
-  
- 
-for (i=0; i<=14; i++) {
-
-  fotos[i];
-  delayMicroseconds(50);
-  
-}
-
-
-  
   }
