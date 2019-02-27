@@ -3,7 +3,6 @@ void communication (bool a, bool b, bool c, bool d, bool e)
   
 }
 
-
 void PR_Combinations()
 {
   linea();

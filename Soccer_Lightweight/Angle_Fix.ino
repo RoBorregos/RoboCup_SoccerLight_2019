@@ -6,7 +6,6 @@ void angleCheck()
   
     /*sensors_event_t event; 
     bno.getEvent(&event);
-    magneticCalibration = 
     orientationAngle = event.orientation.x;*/
   }
 }
