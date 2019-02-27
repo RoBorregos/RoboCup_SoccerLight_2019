@@ -1,37 +1,31 @@
-/*
- * Prueba los diferentes casos uno por uno para perfeccionar los movimientos 
- * Usa motores_apagados
- * 
- */
-
-
+//NOTE! Test each case to perfect movements
 void Seeker()
 {
-  /*IRValor = digitalRead(IRSensor);*/
+  /*IRValue = digitalRead(IRSensor);*/
   InfraredResult InfraredBall = InfraredSeeker::ReadAC();
   Serial.println(InfraredBall.Direction);
 
-  if(InfraredBall.Direction == 5) //Adelante
+  if(InfraredBall.Direction == 1 || InfraredBall.Direction == 2) //Back left
   {
-    motores_encendidos(0); // 0 
+    motores_encendidos(3);
+  }
+  else if(InfraredBall.Direction == 3 || InfraredBall.Direction == 4) //Front left
+  {
+    motores_encendidos(4);
+  }
+  else if(InfraredBall.Direction == 5) //Front
+  {
+    motores_encendidos(0);
   }  
-  else if(InfraredBall.Direction == 6 || InfraredBall.Direction == 7) //Derecha Arriba
+  else if(InfraredBall.Direction == 6 || InfraredBall.Direction == 7) //Front right
   {
-    motores_encendidos(2); // 2
+    motores_encendidos(2);
   }
-  else if(InfraredBall.Direction == 8 || InfraredBall.Direction == 9) //Derecha Abajo
+  else if(InfraredBall.Direction == 8 || InfraredBall.Direction == 9) //Back left
   {
-    motores_encendidos(3); // 3
+    motores_encendidos(3);
   }
-  else if(InfraredBall.Direction == 1 || InfraredBall.Direction == 2) //Izquierda Abajo
-  {
-    motores_encendidos(3); // 3
-  }
-  else if(InfraredBall.Direction == 3 || InfraredBall.Direction == 4) //Izquierda Arriba
-  {
-    motores_encendidos(4); // 4
-  }
-  else if (InfraredBall.Direction == 0) //Atras
+  else if(InfraredBall.Direction == 0) //Back
   {
     motores_encendidos(3);    
   }
