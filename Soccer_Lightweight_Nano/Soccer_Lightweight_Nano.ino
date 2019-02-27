@@ -2,6 +2,13 @@
 INICIALIZAR EL PROGRAMA YA QUE ELE VALOR DE CADA FOTORESISTENCIA SEA EL VALOR INICIAL DE LA FOTO Y AGREGARLE UN RANGO
 */
 
+//Communication pins for the Arduino Mega
+int C1 = 2;
+int C2 = 3;
+int C3 = 4;
+int C4 = 5;
+int C5 = 6;
+
 //MUX OUTPUT
 const int com = A0;
 
