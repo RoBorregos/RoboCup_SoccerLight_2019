@@ -9,12 +9,13 @@
 
 Adafruit_BNO055 bno = Adafruit_BNO055();
 
-int angulo = 0;
-unsigned long long tiempo = 0;
+int orientationAngle = 0;
+int magneticCalibration = 0;
+unsigned long long angleCheckTime = 0;
 
 /* TSOP Variables */
 /*const int IRSensor = ;
-int IRValor = 0;*/
+int IRValue = 0;*/
 
 /* Photoresistors Variables */
 int pinLDR = 0;
@@ -31,11 +32,8 @@ const int motor2B = 9;
 const int motor3A = 10;
 const int motor3B = 11;
 
-/* Seeker Program */
-int DirectionAngle(byte Direction)
-{
-  return Direction * 30 - 150;
-}
+/* LED */
+const int ledPin = 
 
 void setup()
 {
@@ -58,12 +56,18 @@ void setup()
   pinMode(motor3B, OUTPUT);
 
   /* Photoresistors Setup */
-  pinMode(LD, OUTPUT);
-  digitalWrite(LD, LOW);
-  /*pinMode(IRSensor, INPUT);*/
+  //pinMode(LD, OUTPUT);
+  //digitalWrite(LD, LOW);
+  //pinMode(IRSensor, INPUT);
 
   /* Seeker Setup */
   InfraredSeeker::Initialize();
+
+  /* BNO055 Calibration Check */
+  while(!)
+  {
+    
+  }
 }
 
 void loop()
