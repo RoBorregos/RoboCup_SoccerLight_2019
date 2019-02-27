@@ -1,5 +1,4 @@
 void Com_to_Mega(bool a, bool b, bool c, bool d, bool e) {
-
   digitalWrite(x, a);
   digitalWrite(x, b);
   digitalWrite(x, c);
@@ -7,11 +6,9 @@ void Com_to_Mega(bool a, bool b, bool c, bool d, bool e) {
   digitalWrite(x, e);
   
   }
-
-
-void PR_Combinations() {
   
-linea();
+ void PR_Combinations() {
+  linea();
 
  /*/////////////////////////////////////////////First line of Photo Resistors//////////////////////////////////////////////
  
