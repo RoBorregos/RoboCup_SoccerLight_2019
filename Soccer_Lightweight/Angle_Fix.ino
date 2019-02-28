@@ -19,11 +19,11 @@ void angleFix()
   {
     if(orientationAngle <= 180)
     {
-      motores_encendidos(8);    
+      motors(8);
     }
     else
-    {      
-      motores_encendidos(7);      
+    {
+      motors(7);
     }
 
     delay(2);

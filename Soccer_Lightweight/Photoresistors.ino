@@ -1,4 +1,4 @@
-void lines()
+/*void lines()
 {
   digitalRead(n1);
   digitalRead(n2);
@@ -17,4 +17,4 @@ void lines()
   if ((n5 == 1) && (n6 == 1)) {
     
     }
-}
+}*/

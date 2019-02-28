@@ -67,7 +67,9 @@ void setup()
   InfraredSeeker::Initialize();
 
   /* BNO055 Calibration Check */
-  while(!Adafruit_BNO055::isFullyCalibrated())
+  Adafruit_BNO055 BNO055;
+  
+  while(!BNO055.isFullyCalibrated())
   {
     orientationStatus(); 
     digitalWrite(ledPin, HIGH);
@@ -76,7 +78,7 @@ void setup()
     delay(500);
   }
 
-  for(int i = 0; i < 5; ; i++)
+  for(int i = 0; i < 5; i++)
   {
     digitalWrite(ledPin, HIGH);
     delay(100);
