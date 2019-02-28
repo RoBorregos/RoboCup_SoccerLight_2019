@@ -1,9 +1,9 @@
 void Com_to_Mega (bool a, bool b, bool c, bool d, bool e) {
-  digitalWrite(C1, a);
-  digitalWrite(C2, b);
-  digitalWrite(C3, c);
-  digitalWrite(C4, d);
-  digitalWrite(C5, e);
+  digitalWrite(c1, a);
+  digitalWrite(c2, b);
+  digitalWrite(c3, c);
+  digitalWrite(c4, d);
+  digitalWrite(c5, e);
   
   }
   
@@ -110,7 +110,4 @@ if ((PRs[6] > 400 ||PRs[7] > 400) && !(PRs[8] > 400 ||PRs[9] > 400) && !(PRs[10]
     Com_to_Mega(1, 1, 1, 0, 1); 
     
     }
-  
-    
-
 }
