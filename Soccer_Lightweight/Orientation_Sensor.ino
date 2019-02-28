@@ -1,4 +1,4 @@
-void orientationStatus()
+int orientationStatus()
 {
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 
@@ -25,4 +25,6 @@ void orientationStatus()
   Serial.println();
 
   delay(BNO055_SAMPLERATE_DELAY_MS);
+
+  return mag;
 }

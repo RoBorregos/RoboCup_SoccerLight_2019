@@ -3,6 +3,10 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
+#include <math.h>
+
+/* IRSeeker Variables */
+int currentSeekerAngle = 0;
 
 /* BNO055 Variables*/
 #define BNO055_SAMPLERATE_DELAY_MS (100)
@@ -69,14 +73,15 @@ void setup()
   /* BNO055 Calibration Check */
   Adafruit_BNO055 BNO055;
   
-  while(!BNO055.isFullyCalibrated())
+  //while(!BNO055.isFullyCalibrated())
+  /*while(orientationStatus() != 3)
   {
-    orientationStatus(); 
     digitalWrite(ledPin, HIGH);
     delay(1000);
     digitalWrite(ledPin, LOW);
     delay(500);
-  }
+  }*/
+  Serial.print("Calibrated\n");
 
   for(int i = 0; i < 5; i++)
   {
