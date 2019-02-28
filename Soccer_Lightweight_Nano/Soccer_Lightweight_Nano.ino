@@ -3,11 +3,11 @@ INICIALIZAR EL PROGRAMA YA QUE ELE VALOR DE CADA FOTORESISTENCIA SEA EL VALOR IN
 */
 
 //Communication pins for the Arduino Mega
-const int c1 = 2;
-const int c2 = 3;
-const int c3 = 4;
-const int c4 = 5;
-const int c5 = 6;
+const int comPin1 = 2;
+const int comPin2 = 3;
+const int comPin3 = 4;
+const int comPin4 = 5;
+const int comPin5 = 6;
 
 //MUX OUTPUT
 const int com = A0;
