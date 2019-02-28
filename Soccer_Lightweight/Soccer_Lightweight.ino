@@ -13,8 +13,10 @@ int orientationAngle = 0;
 unsigned long long angleCheckTime = 0;
 
 /* TSOP Variables */
-//const int IRSensor = ;
-//int IRValue = 0;
+//const int TSOPSensor1 = ;
+//const int TSOPSensor2 = ;
+//int TSOPValue1 = 0;
+//int TSOPValue2 = 0;
 
 /* Motors Variables */
 const int motor1A = 2;

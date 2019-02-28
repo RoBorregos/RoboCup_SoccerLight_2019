@@ -3,10 +3,10 @@ void angleCheck()
   if (millis() > angleCheckTime + 100)
   {
     angleCheckTime = millis();
-  
-    /*sensors_event_t event; 
+
+    sensors_event_t event;
     bno.getEvent(&event);
-    orientationAngle = event.orientation.x;*/
+    orientationAngle = event.orientation.x;
   }
 }
 

@@ -1,32 +1,41 @@
 //NOTE! Test each case to perfect movements
 void Seeker()
 {
-  /*IRValue = digitalRead(IRSensor);*/
+  //TSOPValue1 = digitalRead(TSOPSensor1);
+  //TSOPValue2 = digitalRead(TSOPSensor2);
   InfraredResult InfraredBall = InfraredSeeker::ReadAC();
   Serial.println(InfraredBall.Direction);
 
-  if(InfraredBall.Direction == 1 || InfraredBall.Direction == 2) //Back left
+  if(InfraredBall.Direction == 1 || InfraredBall.Direction == 2) //Back Left
   {
-    motores_encendidos(3);
+    motors(3);
   }
-  else if(InfraredBall.Direction == 3 || InfraredBall.Direction == 4) //Front left
+  else if(InfraredBall.Direction == 3 || InfraredBall.Direction == 4) //Front Left
   {
-    motores_encendidos(4);
+    motors(4);
   }
   else if(InfraredBall.Direction == 5) //Front
   {
-    motores_encendidos(0);
+    motors(0);
   }  
-  else if(InfraredBall.Direction == 6 || InfraredBall.Direction == 7) //Front right
+  else if(InfraredBall.Direction == 6 || InfraredBall.Direction == 7) //Front Right
   {
-    motores_encendidos(2);
+    motors(2);
   }
-  else if(InfraredBall.Direction == 8 || InfraredBall.Direction == 9) //Back left
+  else if(InfraredBall.Direction == 8 || InfraredBall.Direction == 9) //Back Right
   {
-    motores_encendidos(3);
+    motors(3);
   }
   else if(InfraredBall.Direction == 0) //Back
   {
-    motores_encendidos(3);    
+    motors(3);    
   }
+  /*else if(TSOPValue1 > 100) //Back Left
+  {
+    motors(2);
+  }
+  else if(TSOPValue2 > 100) //Back Right
+  {
+    motors(4);
+  }*/
 }
