@@ -16,11 +16,6 @@ unsigned long long angleCheckTime = 0;
 //const int IRSensor = ;
 //int IRValue = 0;
 
-/* Photoresistors Variables */
-//int pinLDR = 0;
-//int valorLDR = 0;  
-//int LD = 8;
-
 /* Motors Variables */
 const int motor1A = 2;
 const int motor1B = 3;
@@ -32,7 +27,11 @@ const int motor3A = 6;
 const int motor3B = 7;
 
 /*Pins for Nano Communication*/
-const int 
+const int n1 = 52; 
+const int n2 = 50;
+const int n3 = 48;
+const int n4 = 46;
+const int n5 = 44;
 
 /* LED */
 const int ledPin = 12;
