@@ -22,14 +22,17 @@ unsigned long long angleCheckTime = 0;
 //int LD = 8;
 
 /* Motors Variables */
-const int motor1A = 6;
-const int motor1B = 7;
+const int motor1A = 2;
+const int motor1B = 3;
 
-const int motor2A = 8;
-const int motor2B = 9;
+const int motor2A = 4;
+const int motor2B = 5;
 
-const int motor3A = 10;
-const int motor3B = 11;
+const int motor3A = 6;
+const int motor3B = 7;
+
+/*Pins for Nano Communication*/
+const int 
 
 /* LED */
 const int ledPin = 12;

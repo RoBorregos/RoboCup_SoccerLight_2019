@@ -3,28 +3,28 @@ INICIALIZAR EL PROGRAMA YA QUE ELE VALOR DE CADA FOTORESISTENCIA SEA EL VALOR IN
 */
 
 //Communication pins for the Arduino Mega
-int c1 = 2;
-int c2 = 3;
-int c3 = 4;
-int c4 = 5;
-int c5 = 6;
+const int c1 = 2;
+const int c2 = 3;
+const int c3 = 4;
+const int c4 = 5;
+const int c5 = 6;
 
 //MUX OUTPUT
 const int com = A0;
 
 //MUX INPUT
-int s0 = 0;
-int s1 = 0;
-int s2 = 0;
+const int s0 = 0;
+const int s1 = 0;
+const int s2 = 0;
 
 //Pins of the PR
-int pr8 = A1;
-int pr9 = A2;
-int pr10 = A3;
-int pr11 = A4;
-int pr12 = A5;
-int pr13 = A6;
-int pr14 = A7;
+const int pr8 = A1;
+const int pr9 = A2;
+const int pr10 = A3;
+const int pr11 = A4;
+const int pr12 = A5;
+const int pr13 = A6;
+const int pr14 = A7;
 
 //Array of the MUX
 int PRs[15] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
