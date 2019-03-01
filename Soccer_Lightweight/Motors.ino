@@ -1,6 +1,6 @@
 void motors(int n)
 {
-  int power = 120;
+  int power = 255;
   
   if(n == 0) //Forward
   {
@@ -83,7 +83,7 @@ void motors(int n)
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power);
   }
-  /*else if(n == 9) //Right Forward Corner
+  else if(n == 9) //Right Forward Corner
   {    
     analogWrite(motor1A, power);
     analogWrite(motor1B, 0);
@@ -136,5 +136,5 @@ void motors(int n)
     analogWrite(motor2B, power);
     analogWrite(motor3A, power * cos(3.14159 / 6));
     analogWrite(motor3B, 0);
-  }*/
+  }
 }
