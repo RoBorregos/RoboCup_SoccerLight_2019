@@ -95,4 +95,5 @@ void setup()
 void loop()
 {
   Seeker();
+  angleFix();
 }

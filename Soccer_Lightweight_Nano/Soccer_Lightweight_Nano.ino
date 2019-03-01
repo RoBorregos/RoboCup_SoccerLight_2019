@@ -13,9 +13,9 @@ const int comPin5 = 6;
 const int com = A0;
 
 //MUX INPUT
-const int s0 = 0;
-const int s1 = 0;
-const int s2 = 0;
+const int s0 = 9;
+const int s1 = 8;
+const int s2 = 7;
 
 //Pins of the PR
 const int pr8 = A1;
@@ -45,5 +45,9 @@ void setup()
 
 void loop()
 {
+  linea();
+Serial.print(PRs[9]);
+Serial.print(" ");
+Serial.println(PRs[12]);
 
 }

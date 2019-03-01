@@ -4,11 +4,10 @@ int MUX(bool a, bool b, bool c)
   digitalWrite(s1, b);
   digitalWrite(s2, c);
   delayMicroseconds(1);
-  
-  analogRead(com);
+ 
   delayMicroseconds(50);
   
-  return com;
+  return analogRead(com);
 }
 
 void linea()
@@ -23,8 +22,8 @@ void linea()
   //Photoresistor Plate 2 --- Right Plate
   PRs[5] = MUX(0, 0, 0);
   PRs[6] = MUX(0, 0, 1);
-  PRs[7] = MUX(0, 1, 0);
-  PRs[8] = MUX(0, 1, 1);
+  PRs[7] = MUX(0, 1, 0); //5
+  PRs[8] = MUX(0, 1, 1);//6
   PRs[9] = MUX(1, 0, 0);
   
   //Photoresistor Plate 3 --- Left Plate
