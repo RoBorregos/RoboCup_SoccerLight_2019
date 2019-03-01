@@ -8,13 +8,22 @@
 /* IRSeeker Variables */
 int currentSeekerAngle = 0;
 
+int DirectionAngle(byte Direction)
+{
+  return Direction * 30 - 150;
+}
+
 /* BNO055 Variables*/
 #define BNO055_SAMPLERATE_DELAY_MS (100)
 
 Adafruit_BNO055 bno = Adafruit_BNO055();
 
 int orientationAngle = 0;
+int setPoint = 0;
+const int resetSetPoint = 31;
+
 unsigned long long angleCheckTime = 0;
+unsigned long long angleFixTime = 0;
 
 /* TSOP Variables */
 //const int TSOPSensor1 = ;
@@ -33,19 +42,18 @@ const int motor3A = 6;
 const int motor3B = 7;
 
 /*Pins for Nano Communication*/
-const int n1 = 52; 
-const int n2 = 50;
-const int n3 = 48;
-const int n4 = 46;
-const int n5 = 44;
+const int nano1 = 52; 
+const int nano2 = 50;
+const int nano3 = 48;
+const int nano4 = 46;
+const int nano5 = 44;
 
 /* LED */
-const int ledPin = 12;
+const int ledPin = 39;
 
 void setup()
 {
   Serial.begin(9600);
-
   /* BNO055 Setup */
   if(!bno.begin())
   {
@@ -73,27 +81,39 @@ void setup()
   /* BNO055 Calibration Check */
   Adafruit_BNO055 BNO055;
   
-  //while(!BNO055.isFullyCalibrated())
-  /*while(orientationStatus() != 3)
+  while(orientationStatus() != 3)
   {
     digitalWrite(ledPin, HIGH);
     delay(1000);
     digitalWrite(ledPin, LOW);
     delay(500);
-  }*/
-  Serial.print("Calibrated\n");
+  }
+  Serial.println("Calibrated");
 
-  for(int i = 0; i < 5; i++)
+  for(int i = 0; i < 15; i++)
   {
     digitalWrite(ledPin, HIGH);
     delay(100);
     digitalWrite(ledPin, LOW);
     delay(100);
   }
+  orientationAngle = 0;
+  delay(2000);
+  sensors_event_t event;
+  bno.getEvent(&event);
+  setPoint = event.orientation.x;
+  Serial.println(setPoint);
 }
 
 void loop()
 {
-  Seeker();
+  seeker();
   angleFix();
+  
+  if(digitalRead(resetSetPoint) == HIGH)
+  {
+    sensors_event_t event;
+    bno.getEvent(&event);
+    setPoint = event.orientation.x;
+  }
 }
