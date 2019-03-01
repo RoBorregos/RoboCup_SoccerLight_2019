@@ -38,7 +38,18 @@ void printLines()
 {
   for(int i = 0; i < 15; i++)
   {
-    Serial.print(PRs[i]);
+    if(PRs[i] > 600)
+    {
+      Serial.print(1);
+      Serial.print(" ");
+    }
+    else
+    {
+      Serial.print(0);
+      Serial.print(" ");
+    }
   }
   Serial.println();
+  Serial.println();
+  delay(500);
 }
