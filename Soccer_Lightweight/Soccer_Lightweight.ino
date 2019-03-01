@@ -20,6 +20,8 @@ Adafruit_BNO055 bno = Adafruit_BNO055();
 
 int orientationAngle = 0;
 int setPoint = 0;
+const int resetSetPoint = 31;
+
 unsigned long long angleCheckTime = 0;
 unsigned long long angleFixTime = 0;
 
@@ -40,11 +42,11 @@ const int motor3A = 6;
 const int motor3B = 7;
 
 /*Pins for Nano Communication*/
-const int n1 = 52; 
-const int n2 = 50;
-const int n3 = 48;
-const int n4 = 46;
-const int n5 = 44;
+const int nano1 = 52; 
+const int nano2 = 50;
+const int nano3 = 48;
+const int nano4 = 46;
+const int nano5 = 44;
 
 /* LED */
 const int ledPin = 39;
@@ -107,4 +109,11 @@ void loop()
 {
   seeker();
   angleFix();
+  
+  if(digitalRead(resetSetPoint) == HIGH)
+  {
+    sensors_event_t event;
+    bno.getEvent(&event);
+    setPoint = event.orientation.x;
+  }
 }

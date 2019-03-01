@@ -1,76 +1,76 @@
 void lines()
 {
-  digitalRead(n1);
-  digitalRead(n2);
-  digitalRead(n3);
-  digitalRead(n4);
-  digitalRead(n5);
+  digitalRead(nano1);
+  digitalRead(nano2);
+  digitalRead(nano3);
+  digitalRead(nano4);
+  digitalRead(nano5);
 
-  if ((n1 == 0) && (n2 == 1))
+  if ((nano1 == 0) && (nano2 == 1))
   {
-    if (n3 == 0 && n4 == 0 && n5 == 0)
+    if (nano3 == 0 && nano4 == 0 && nano5 == 0)
     {
       motors(3);
     }
-    else if (n3 == 0 && n4 == 0 && n5 == 1)
+    else if (nano3 == 0 && nano4 == 0 && nano5 == 1)
     {
       motors(2);
     }
-    else if (n3 == 0 && n4 == 1 && n5 == 0)
+    else if (nano3 == 0 && nano4 == 1 && nano5 == 0)
     {
       motors(4);
     }
-    else if (n3 == 0 && n4 == 1 && n5 == 1)
+    else if (nano3 == 0 && nano4 == 1 && nano5 == 1)
     {
       motors(4);
     }
-    else if (n3 == 1 && n4 == 0 && n5 == 0)
+    else if (nano3 == 1 && nano4 == 0 && nano5 == 0)
     {
       motors(0);
     }
-    else if (n3 == 1 && n4 == 0 && n5 == 1)
+    else if (nano3 == 1 && nano4 == 0 && nano5 == 1)
     {
       motors(2);
     }
   }
-  else if (n1 == 1 && n2 == 0)
+  else if (nano1 == 1 && nano2 == 0)
   {
-    if (n3 == 0 && n4 == 0 && n5 == 0)
+    if (nano3 == 0 && nano4 == 0 && nano5 == 0)
     {
       motors(6);
     }
-    else if (n3 == 0 && n4 == 0 && n5 == 1)
+    else if (nano3 == 0 && nano4 == 0 && nano5 == 1)
     {
       motors(6);
     }
-    else if (n3 == 0 && n4 == 1 && n5 == 0)
+    else if (nano3 == 0 && nano4 == 1 && nano5 == 0)
     {
       motors(6);
     }
-    else if (n3 == 0 && n4 == 1 && n5 == 1)
+    else if (nano3 == 0 && nano4 == 1 && nano5 == 1)
     {
       motors(6);
     }
-    else if (n3 == 1 && n4 == 0 && n5 == 0)
+    else if (nano3 == 1 && nano4 == 0 && nano5 == 0)
     {
       motors(6);
     }
-    else if (n3 == 1 && n4 == 0 && n5 == 1)
+    else if (nano3 == 1 && nano4 == 0 && nano5 == 1)
     {
       motors(6);
     }
   }
-  else if (n1 == 1 && n2 == 1) 
+  else if (nano1 == 1 && nano2 == 1) 
   {
-    if (n3 == 0 && n4 == 0 && n5 == 0)
+    if (nano3 == 0 && nano4 == 0 && nano5 == 0)
     {
       motors(6);
     }
-    if (n3 == 0 && n4 == 0 && n5 == 1)
+    if (nano3 == 0 && nano4 == 0 && nano5 == 1)
     {
       motors(6);
     }
-    if (n3 == 0 && n4 == 1 && n5 == 0)
+    if (nano3 == 0 && nano4 == 1 && nano5 == 0)
     {
       motors(6);
     }
