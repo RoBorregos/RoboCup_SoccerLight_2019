@@ -46,8 +46,9 @@ void setup()
 void loop()
 {
   linea();
-Serial.print(PRs[2]);
-Serial.print(" ");
-Serial.println(PRs[3]);
-
+  printLines();
+  PR_Combinations();
+  /*Serial.print(PRs[2]);
+  Serial.print(" ");
+  Serial.println(PRs[3]);*/
 }

@@ -121,6 +121,6 @@ void loop()
     bno.getEvent(&event);
     setPoint = event.orientation.x;
   }*/
-  motors(0);
-  lines();
+  motors(3);
+  linesTest();
 }

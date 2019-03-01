@@ -33,3 +33,12 @@ void linea()
   PRs[13] = analogRead(pr8); 
   PRs[14] = analogRead(pr9);
 }
+
+void printLines()
+{
+  for(int i = 0; i < 15; i++)
+  {
+    Serial.print(PRs[i]);
+  }
+  Serial.println();
+}
