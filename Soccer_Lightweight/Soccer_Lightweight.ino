@@ -41,12 +41,17 @@ const int motor2B = 5;
 const int motor3A = 6;
 const int motor3B = 7;
 
-/*Pins for Nano Communication*/
-const int nano1 = 52; 
-const int nano2 = 50;
-const int nano3 = 48;
-const int nano4 = 46;
-const int nano5 = 44;
+/* Nano Communication */
+const int nanoPin1 = 52; 
+const int nanoPin2 = 50;
+const int nanoPin3 = 48;
+const int nanoPin4 = 46;
+const int nanoPin5 = 44;
+int nano1 = 0;
+int nano2 = 0;
+int nano3 = 0;
+int nano4 = 0;
+int nano5 = 0;
 
 /* LED */
 const int ledPin = 39;
@@ -81,14 +86,14 @@ void setup()
   /* BNO055 Calibration Check */
   Adafruit_BNO055 BNO055;
   
-  while(orientationStatus() != 3)
+  /*while(orientationStatus() != 3)
   {
     digitalWrite(ledPin, HIGH);
     delay(1000);
     digitalWrite(ledPin, LOW);
     delay(500);
   }
-  Serial.println("Calibrated");
+  Serial.println("Calibrated");*/
 
   for(int i = 0; i < 15; i++)
   {
@@ -107,7 +112,7 @@ void setup()
 
 void loop()
 {
-  seeker();
+  /*seeker();
   angleFix();
   
   if(digitalRead(resetSetPoint) == HIGH)
@@ -115,5 +120,7 @@ void loop()
     sensors_event_t event;
     bno.getEvent(&event);
     setPoint = event.orientation.x;
-  }
+  }*/
+  motors(0);
+  lines();
 }

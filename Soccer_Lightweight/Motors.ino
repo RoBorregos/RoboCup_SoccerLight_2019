@@ -1,6 +1,6 @@
 void motors(int n)
 {
-  int power = 255;
+  int power = 60;
   
   if(n == 0) //Forward
   {

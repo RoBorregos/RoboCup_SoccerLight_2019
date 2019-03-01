@@ -1,10 +1,10 @@
 void lines()
 {
-  digitalRead(nano1);
-  digitalRead(nano2);
-  digitalRead(nano3);
-  digitalRead(nano4);
-  digitalRead(nano5);
+  nano1 = digitalRead(nanoPin1);
+  nano2 = digitalRead(nanoPin2);
+  nano3 = digitalRead(nanoPin3);
+  nano4 = digitalRead(nanoPin4);
+  nano5 = digitalRead(nanoPin5);
 
   if ((nano1 == 0) && (nano2 == 1))
   {
@@ -12,7 +12,7 @@ void lines()
     {
       motors(3);
     }
-    else if (nano3 == 0 && nano4 == 0 && nano5 == 1)
+    /*else if (nano3 == 0 && nano4 == 0 && nano5 == 1)
     {
       motors(2);
     }
@@ -31,9 +31,9 @@ void lines()
     else if (nano3 == 1 && nano4 == 0 && nano5 == 1)
     {
       motors(2);
-    }
+    }*/
   }
-  else if (nano1 == 1 && nano2 == 0)
+  /*else if (nano1 == 1 && nano2 == 0)
   {
     if (nano3 == 0 && nano4 == 0 && nano5 == 0)
     {
@@ -74,5 +74,5 @@ void lines()
     {
       motors(6);
     }
-  }
+  }*/
 }
