@@ -48,11 +48,11 @@ const int nanoPin2 = 50;
 const int nanoPin3 = 48;
 const int nanoPin4 = 46;
 const int nanoPin5 = 44;
-bool nano1 = 1;
-bool nano2 = 1;
-bool nano3 = 1;
-bool nano4 = 1;
-bool nano5 = 1;
+bool nano1 = 0;
+bool nano2 = 0;
+bool nano3 = 0;
+bool nano4 = 0;
+bool nano5 = 0;
 
 /* LED */
 const int ledPin = 39;
@@ -80,9 +80,6 @@ void setup()
   pinMode(ledPin, OUTPUT);
 
   /* Photoresistors Setup */
-  //pinMode(LD, OUTPUT);
-  //digitalWrite(LD, LOW);
-  //pinMode(IRSensor, INPUT);
   pinMode(nano1, INPUT);
   pinMode(nano2, INPUT);
   pinMode(nano3, INPUT);
@@ -121,8 +118,7 @@ void setup()
 
 void loop()
 {
-  motors(0, 1);
-  /*lines();
+  lines();
   seeker();
   angleFix();
   
@@ -131,5 +127,8 @@ void loop()
     sensors_event_t event;
     bno.getEvent(&event);
     setPoint = event.orientation.x;
-  }*/
+  }
+  //motors(0, 0);
+  //analogWrite(motor2A, 0);
+  //analogWrite(motor2B, 255);
 }
