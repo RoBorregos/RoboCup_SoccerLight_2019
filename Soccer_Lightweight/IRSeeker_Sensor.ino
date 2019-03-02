@@ -8,50 +8,68 @@ void seeker()
 
   if(InfraredBall.Direction == 1) //Back Left
   {
-    motors(3);
+    motors(3, 0);
+    lastDirAngle = 1;
+    Serial.println("In seeker 1");
   }
   else if(InfraredBall.Direction == 2) //Back Left
   {
-    motors(3);
+    motors(3, 0);
+    lastDirAngle = 1;
+    Serial.println("In seeker 2");
   }
   else if(InfraredBall.Direction == 3) //Front Left
   {
-    motors(4);
+    motors(4, 0);
+    lastDirAngle = 1;
+    Serial.println("In seeker 3");
   }
   else if(InfraredBall.Direction == 4) //Front Left
   {
-    motors(13);
+    motors(4, 0);
+    lastDirAngle = 1;
+    Serial.println("In seeker 4");
   }
   else if(InfraredBall.Direction == 5) //Front
   {
-    motors(0);
+    motors(0, 0);
+    Serial.println("In seeker 5");
   }  
   else if(InfraredBall.Direction == 6) //Front Right
   {
-    motors(10);
+    motors(2, 0);
+    lastDirAngle = 9;
+    Serial.println("In seeker 6");
   }
   else if(InfraredBall.Direction == 7) //Front Right
   {
-    motors(2);
+    motors(2, 0);
+    lastDirAngle = 9;
+    Serial.println("In seeker 7");
   }
   else if(InfraredBall.Direction == 8) //Back Right
   {
-    motors(3);
+    motors(3, 0);
+    lastDirAngle = 9;
+    Serial.println("In seeker 8");
   }
   else if(InfraredBall.Direction == 9) //Back Right
   {
-    motors(3);
+    motors(3, 0);
+    lastDirAngle = 9;
+    Serial.println("In seeker 9");
   }
   else if(InfraredBall.Direction == 0) //Back
   {
-    motors(6);
-    /*if(TSOPValue1 > 100) //Back Left
+    if(lastDirAngle == 1) //Back Left
     {
-      motors(2);
+      motors(2, 0);
+      Serial.println("In seeker 0");
     }
-    else if(TSOPValue2 > 100) //Back Right
+    else if(lastDirAngle == 9) //Back Right
     {
-      motors(4);
-    }*/
+      motors(4, 0);
+      Serial.println("In seeker 10");
+    }
   }
 }

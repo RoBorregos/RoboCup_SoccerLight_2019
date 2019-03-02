@@ -7,6 +7,7 @@
 
 /* IRSeeker Variables */
 int currentSeekerAngle = 0;
+int lastDirAngle = 0;
 
 int DirectionAngle(byte Direction)
 {
@@ -26,10 +27,10 @@ unsigned long long angleCheckTime = 0;
 unsigned long long angleFixTime = 0;
 
 /* TSOP Variables */
-//const int TSOPSensor1 = ;
-//const int TSOPSensor2 = ;
-//int TSOPValue1 = 0;
-//int TSOPValue2 = 0;
+const int TSOPSensor0 = 26;
+const int TSOPSensor10 = 24;
+int TSOPValue0 = 0;
+int TSOPValue10 = 0;
 
 /* Motors Variables */
 const int motor1A = 2;
@@ -47,11 +48,11 @@ const int nanoPin2 = 50;
 const int nanoPin3 = 48;
 const int nanoPin4 = 46;
 const int nanoPin5 = 44;
-int nano1 = 0;
-int nano2 = 0;
-int nano3 = 0;
-int nano4 = 0;
-int nano5 = 0;
+bool nano1 = 1;
+bool nano2 = 1;
+bool nano3 = 1;
+bool nano4 = 1;
+bool nano5 = 1;
 
 /* LED */
 const int ledPin = 39;
@@ -75,10 +76,18 @@ void setup()
   pinMode(motor3A, OUTPUT);
   pinMode(motor3B, OUTPUT);
 
+  /* LED Setup */
+  pinMode(ledPin, OUTPUT);
+
   /* Photoresistors Setup */
   //pinMode(LD, OUTPUT);
   //digitalWrite(LD, LOW);
   //pinMode(IRSensor, INPUT);
+  pinMode(nano1, INPUT);
+  pinMode(nano2, INPUT);
+  pinMode(nano3, INPUT);
+  pinMode(nano4, INPUT);
+  pinMode(nano5, INPUT);
 
   /* Seeker Setup */
   InfraredSeeker::Initialize();
@@ -86,14 +95,14 @@ void setup()
   /* BNO055 Calibration Check */
   Adafruit_BNO055 BNO055;
   
-  /*while(orientationStatus() != 3)
+  while(orientationStatus() != 3)
   {
     digitalWrite(ledPin, HIGH);
     delay(1000);
     digitalWrite(ledPin, LOW);
     delay(500);
   }
-  Serial.println("Calibrated");*/
+  Serial.println("Calibrated");
 
   for(int i = 0; i < 15; i++)
   {
@@ -112,7 +121,9 @@ void setup()
 
 void loop()
 {
-  /*seeker();
+  motors(0, 1);
+  /*lines();
+  seeker();
   angleFix();
   
   if(digitalRead(resetSetPoint) == HIGH)
@@ -121,6 +132,4 @@ void loop()
     bno.getEvent(&event);
     setPoint = event.orientation.x;
   }*/
-  motors(3);
-  lines();
 }
