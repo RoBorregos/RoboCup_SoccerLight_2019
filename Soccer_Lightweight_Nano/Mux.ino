@@ -3,9 +3,7 @@ int MUX(bool a, bool b, bool c)
   digitalWrite(s0, a);
   digitalWrite(s1, b);
   digitalWrite(s2, c);
-  delayMicroseconds(1);
- 
-  delayMicroseconds(50);
+  delayMicroseconds(25); //50
   
   return analogRead(com);
 }
@@ -32,13 +30,20 @@ void linea()
   PRs[12] = MUX(1, 1, 1);
   PRs[13] = analogRead(pr8); 
   PRs[14] = analogRead(pr9);
+
+  for (int i = 0; i<=14; i++) {
+    Serial.print(PRs[i]);
+    Serial.print(" ");
+    
+    }
+    Serial.println();
 }
 
 void printLines()
 {
   for(int i = 0; i < 15; i++)
   {
-    if(PRs[i] > 600)
+    if(PRs[i] > 850)
     {
       Serial.print(1);
       Serial.print(" ");
@@ -51,5 +56,5 @@ void printLines()
   }
   Serial.println();
   Serial.println();
-  delay(500);
+  delay(100);
 }

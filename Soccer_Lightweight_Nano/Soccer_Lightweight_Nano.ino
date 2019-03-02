@@ -39,16 +39,19 @@ void setup()
   pinMode(s1, OUTPUT);
   pinMode(s2, OUTPUT);
 
+  //Set Pins to OUTPUT for Mega Communication
+  pinMode(comPin1, OUTPUT);
+  pinMode(comPin2, OUTPUT);
+  pinMode(comPin3, OUTPUT);
+  pinMode(comPin4, OUTPUT);
+  pinMode(comPin5, OUTPUT);
+
   //Set Com to OUTPUT
   pinMode(com, INPUT);
 } 
 
 void loop()
 {
-  linea();
   printLines();
   PR_Combinations();
-  /*Serial.print(PRs[2]);
-  Serial.print(" ");
-  Serial.println(PRs[3]);*/
 }
