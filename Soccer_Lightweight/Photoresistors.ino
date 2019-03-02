@@ -30,14 +30,56 @@ void lines()
   nano4 = digitalRead(nanoPin4);
   nano5 = digitalRead(nanoPin5);
 
-  if ((nano1 == 0) && (nano2 == 1))
+  Serial.print(nano1);
+  Serial.print(" ");
+  Serial.print(nano2);
+  Serial.print(" ");
+  Serial.print(nano3);
+  Serial.print(" ");
+  Serial.print(nano4);
+  Serial.print(" ");
+  Serial.print(nano5);
+  Serial.println();
+  
+
+  if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)
+  {
+    Serial.println("1");
+  }
+  else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 0)
+  {
+    Serial.println("2");
+  }
+  else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 1)
+  {
+    Serial.println("3");
+  }
+  else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0)
+  {
+    Serial.println("4");
+  }
+  else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 1)
+  {
+    Serial.println("5");
+  }
+  else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 1 && nano5 == 0)
+  {
+    Serial.println("6");
+  }
+  else
+  {
+    Serial.println("Nothing");
+  }
+  delay(250);
+
+  /*if ((nano1 == 0) && (nano2 == 1))
   {
     if (nano3 == 0 && nano4 == 0 && nano5 == 0)
     {
       motors(3);
       Serial.println("blablabla");
     }
-    /*else if (nano3 == 0 && nano4 == 0 && nano5 == 1)
+    else if (nano3 == 0 && nano4 == 0 && nano5 == 1)
     {
       motors(2);
     }
@@ -56,9 +98,9 @@ void lines()
     else if (nano3 == 1 && nano4 == 0 && nano5 == 1)
     {
       motors(2);
-    }*/
+    }
   }
-  /*else if (nano1 == 1 && nano2 == 0)
+  else if (nano1 == 1 && nano2 == 0)
   {
     if (nano3 == 0 && nano4 == 0 && nano5 == 0)
     {

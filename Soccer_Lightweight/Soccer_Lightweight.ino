@@ -122,5 +122,5 @@ void loop()
     setPoint = event.orientation.x;
   }*/
   motors(3);
-  linesTest();
+  lines();
 }
