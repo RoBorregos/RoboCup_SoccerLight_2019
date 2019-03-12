@@ -119,14 +119,13 @@ void setup()
 void loop()
 {
   lines();
-  seeker();
-  angleFix();
+  //seeker();
+  //angleFix();
   
-  if(digitalRead(resetSetPoint) == HIGH)
+  /*if(digitalRead(resetSetPoint) == HIGH)
   {
     sensors_event_t event;
     bno.getEvent(&event);
     setPoint = event.orientation.x;
-  }
-  
+  }*/
 }

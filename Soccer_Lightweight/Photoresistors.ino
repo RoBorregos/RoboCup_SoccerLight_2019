@@ -1,7 +1,9 @@
 void lines()
 {
-  nano1 = digitalRead(nanoPin1);
-  nano2 = digitalRead(nanoPin2);
+  //nano1 = digitalRead(nanoPin1);
+  //nano2 = digitalRead(nanoPin2);
+  nano1 = 0;
+  nano2 = 0;
   nano3 = digitalRead(nanoPin3);
   nano4 = digitalRead(nanoPin4);
   nano5 = digitalRead(nanoPin5);
@@ -47,9 +49,10 @@ void lines()
     Serial.println("6");
     motors(2, 500);
   }
-  /*else
+  else
   {
     Serial.println("Nothing");
     motors(6, 0);
-  }*/
+  }
+  delay(250);
 }
