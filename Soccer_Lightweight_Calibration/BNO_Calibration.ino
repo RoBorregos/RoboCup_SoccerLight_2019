@@ -29,7 +29,7 @@ void BNOCalibration()
   Serial.print(event.orientation.z, 4);
   Serial.println("");
   
-  delay(100);
+  delay(250);
 
   uint8_t system, gyro, accel, mag;
   system = gyro = accel = mag = 0;

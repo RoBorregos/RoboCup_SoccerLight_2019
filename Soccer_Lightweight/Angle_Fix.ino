@@ -32,5 +32,9 @@ void angleFix()
   
       delayMicroseconds(500);
     }
+    else
+    {
+      motors(6, 0);
+    }
   }
 }
