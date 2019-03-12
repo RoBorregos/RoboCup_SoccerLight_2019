@@ -47,9 +47,9 @@ void lines()
     Serial.println("6");
     motors(2, 500);
   }
-  else
+  /*else
   {
     Serial.println("Nothing");
     motors(6, 0);
-  }
+  }*/
 }

@@ -2,12 +2,20 @@
 INICIALIZAR EL PROGRAMA YA QUE ELE VALOR DE CADA FOTORESISTENCIA SEA EL VALOR INICIAL DE LA FOTO Y AGREGARLE UN RANGO
 */
 
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+//Crear el objeto lcd  dirección  0x3F y 16 columnas x 2 filas
+LiquidCrystal_I2C lcd(0x27,16,2);  //
+
 //Communication pins for the Arduino Mega
 const int comPin1 = 2;
 const int comPin2 = 3;
 const int comPin3 = 4;
 const int comPin4 = 5;
 const int comPin5 = 6;
+
+const int led = 13;
 
 //MUX OUTPUT
 const int com = A0;
@@ -48,10 +56,19 @@ void setup()
 
   //Set Com to OUTPUT
   pinMode(com, INPUT);
+  pinMode(led, OUTPUT);
+
+  //LCD Startup
+  lcd.init();
+  lcd.backlight();
 } 
 
 void loop()
 {
-  printLines();
-  PR_Combinations();
+  //printLines();
+  linea();
+  printLCD();
+  //PR_Combinations();
+
+  
 }

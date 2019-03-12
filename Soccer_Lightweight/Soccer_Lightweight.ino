@@ -128,7 +128,5 @@ void loop()
     bno.getEvent(&event);
     setPoint = event.orientation.x;
   }
-  //motors(0, 0);
-  //analogWrite(motor2A, 0);
-  //analogWrite(motor2B, 255);
+  
 }
