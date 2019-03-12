@@ -66,9 +66,9 @@ void setup()
 void loop()
 {
   //printLines();
-  linea();
-  printLCD();
-  //PR_Combinations();
+  //linea();
+  //printLCD();
+  PR_Combinations();
 
   
 }
