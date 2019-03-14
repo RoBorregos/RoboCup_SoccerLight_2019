@@ -119,7 +119,7 @@ void setup()
 
 void loop()
 {
-  lines();
+  //lines();
   seeker();
   angleFix();
   

@@ -19,7 +19,7 @@ void lines()
   Serial.print(nano5);
   Serial.println();
 
-  if ((nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0) && ((InfraredBall.Direction == 6) || (InfraredBall.Direction == 7)) && !(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)) 
+  /*if ((nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0) && ((InfraredBall.Direction == 6) || (InfraredBall.Direction == 7)) && !(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)) 
   {
     motors(6);
     delay(100);
@@ -55,7 +55,7 @@ void lines()
     nano3 = digitalRead(nanoPin3);
     nano4 = digitalRead(nanoPin4);
     nano5 = digitalRead(nanoPin5);
-  }
+  }*/
   
   if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)
   {

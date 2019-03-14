@@ -61,7 +61,21 @@ void seeker()
   }
   else if(InfraredBall.Direction == 0) //Back
   {
-    if(lastDirAngle == 1) //Back Left
+    motors(2);
+    Serial.println("In seeker 0");
+    
+    /*if(seekerBackRight())
+    {
+      motors(4);
+      Serial.println("In seeker 10");
+    }
+    else
+    {
+      motors(2);
+      Serial.println("In seeker 0");
+    }*/
+    
+    /*if(lastDirAngle == 1) //Back Left
     {
       motors(2);
       Serial.println("In seeker 0");
@@ -70,6 +84,64 @@ void seeker()
     {
       motors(4);
       Serial.println("In seeker 10");
+    }*/
+  }
+}
+
+bool seekerBackRight()
+{
+  if(orientationAngle < 180)
+  {
+    while(orientationAngle < 45)
+    {
+      motors(7);
+      angleCheck();
+    }
+    motors(6);
+  
+    InfraredResult InfraredBall = InfraredSeeker::ReadAC();
+  
+    while(orientationAngle > 45)
+    {
+      motors(8);
+      angleCheck();
+    }
+    motors(6);
+  
+    if(InfraredBall.Direction == 9 || InfraredBall.Direction == 8 || InfraredBall.Direction == 7)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  else
+  {
+    while(orientationAngle > 315)
+    {
+      motors(8);
+      angleCheck();
+    }
+    motors(6);
+  
+    InfraredResult InfraredBall = InfraredSeeker::ReadAC();
+  
+    while(orientationAngle < 315)
+    {
+      motors(7);
+      angleCheck();
+    }
+    motors(6);
+  
+    if(InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 3)
+    {
+      return false;
+    }
+    else
+    {
+      return true;
     }
   }
 }
