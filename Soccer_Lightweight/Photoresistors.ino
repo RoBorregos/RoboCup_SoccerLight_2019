@@ -58,8 +58,11 @@ void lines()
   }
   
   if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)
-  {
+  { 
     Serial.println("1");
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledL, LOW);
     motors(3);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + 250)
@@ -70,6 +73,9 @@ void lines()
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 0)
   {
     Serial.println("2");
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledL, LOW);
     motors(5);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + 250)
@@ -80,6 +86,9 @@ void lines()
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 1)
   {
     Serial.println("3");
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledL, HIGH);
     motors(1);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + 250)
@@ -90,6 +99,9 @@ void lines()
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0)
   {
     Serial.println("4");
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledL, LOW);
     motors(4);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + 250)
@@ -100,6 +112,9 @@ void lines()
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 1)
   {
     Serial.println("5");
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledL, HIGH);
     motors(0);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + 250)
@@ -110,6 +125,9 @@ void lines()
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 1 && nano5 == 0)
   {
     Serial.println("6");
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledL, HIGH);
     motors(2);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + 250)
@@ -119,6 +137,9 @@ void lines()
   }
   else
   {
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledL, LOW);
     Serial.println("Nothing");
   }
 }

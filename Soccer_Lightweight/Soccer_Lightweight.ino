@@ -57,6 +57,9 @@ unsigned long long lineDelayTime = 0;
 
 /* LED */
 const int ledPin = 39;
+const int ledF = 36;
+const int ledR = 38;
+const int ledL = 40;
 
 void setup()
 {
@@ -79,6 +82,9 @@ void setup()
 
   /* LED Setup */
   pinMode(ledPin, OUTPUT);
+  pinMode(ledF, OUTPUT);
+  pinMode(ledR, OUTPUT);
+  pinMode(ledL, OUTPUT);
 
   /* Photoresistors Setup */
   pinMode(nano1, INPUT);
