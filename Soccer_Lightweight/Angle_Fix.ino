@@ -19,7 +19,7 @@ void angleFix()
     angleFixTime = millis();
 
     //NOTE! Check for negative angles
-    if(orientationAngle > 20 && orientationAngle < 340)
+    if(orientationAngle > 25 && orientationAngle < 335) //20 - 340
     {
       if(orientationAngle <= 180)
       {
