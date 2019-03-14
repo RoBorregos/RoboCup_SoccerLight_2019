@@ -1,6 +1,6 @@
-void motors(int dir, int wait)
+void motors(int dir)
 {
-  int power = 180;
+  int power = 255;
   
   if(dir == 0) //Forward
   {
@@ -10,7 +10,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, power);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, 0);
-    delay(wait);
   }  
   else if(dir == 1) //Right Forward
   {
@@ -20,7 +19,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power);
-    delay(wait);
   }
   else if(dir == 2) //Right Backward
   {
@@ -30,7 +28,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power);
-    delay(wait);
   }
   else if(dir == 3) //Back
   {
@@ -40,7 +37,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 4) //Left Backward
   {
@@ -50,7 +46,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, power);
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 5) //Left Forward
   {
@@ -60,7 +55,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, power);
     analogWrite(motor3A, power);
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 6) //Stop
   {
@@ -70,7 +64,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 7) //Clockwise Rotation
   {
@@ -80,7 +73,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, power);
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 8) //Counterclockwise Rotation
   {    
@@ -90,7 +82,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, power);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power);
-    delay(wait);
   }
   else if(dir == 9) //Right Forward Corner
   {    
@@ -100,7 +91,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, power * cos(3.14159 / 6));
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power * cos(3.14159 / 6));
-    delay(wait);
   }
   else if(dir == 10) //Right Corner
   {    
@@ -110,7 +100,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power);
-    delay(wait);
   }
   else if(dir == 11) //Right Backward Corner
   {    
@@ -120,7 +109,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, 0);
     analogWrite(motor3B, power * cos(3.14159 / 6));
-    delay(wait);
   }
   else if(dir == 12) //Left Backward Corner
   {    
@@ -130,7 +118,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, 0);
     analogWrite(motor3A, power * cos(3.14159 / 6));
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 13) //Left Corner
   {    
@@ -140,7 +127,6 @@ void motors(int dir, int wait)
     analogWrite(motor2B, power * cos(3.14159 / 6));
     analogWrite(motor3A, power);
     analogWrite(motor3B, 0);
-    delay(wait);
   }
   else if(dir == 14) //Left Forward Corner
   {    
@@ -150,6 +136,5 @@ void motors(int dir, int wait)
     analogWrite(motor2B, power);
     analogWrite(motor3A, power * cos(3.14159 / 6));
     analogWrite(motor3B, 0);
-    delay(wait);
   }
 }

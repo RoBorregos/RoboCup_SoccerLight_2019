@@ -1,9 +1,9 @@
 void lines()
 {
-  //nano1 = digitalRead(nanoPin1);
-  //nano2 = digitalRead(nanoPin2);
-  nano1 = 0;
-  nano2 = 0;
+  nano1 = digitalRead(nanoPin1);
+  nano2 = digitalRead(nanoPin2);
+  //nano1 = 0;
+  //nano2 = 0;
   nano3 = digitalRead(nanoPin3);
   nano4 = digitalRead(nanoPin4);
   nano5 = digitalRead(nanoPin5);
@@ -22,37 +22,65 @@ void lines()
   if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)
   {
     Serial.println("1");
-    motors(3, 500);
+    motors(3);
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + 250)
+    {
+      lines();
+    }
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 0)
   {
     Serial.println("2");
-    motors(5, 500);
+    motors(5);
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + 250)
+    {
+      lines();
+    }
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 1)
   {
     Serial.println("3");
-    motors(1, 500);
+    motors(1);
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + 250)
+    {
+      lines();
+    }
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0)
   {
     Serial.println("4");
-    motors(4, 500);
+    motors(4);
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + 250)
+    {
+      lines();
+    }
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 1)
   {
     Serial.println("5");
-    motors(0, 500);
+    motors(0);
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + 250)
+    {
+      lines();
+    }
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 1 && nano5 == 0)
   {
     Serial.println("6");
-    motors(2, 500);
+    motors(2);
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + 250)
+    {
+      lines();
+    }
   }
   else
   {
     Serial.println("Nothing");
-    motors(6, 0);
   }
-  delay(250);
 }

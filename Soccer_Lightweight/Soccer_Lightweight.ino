@@ -53,6 +53,7 @@ bool nano2 = 0;
 bool nano3 = 0;
 bool nano4 = 0;
 bool nano5 = 0;
+unsigned long long lineDelayTime = 0;
 
 /* LED */
 const int ledPin = 39;
@@ -119,8 +120,8 @@ void setup()
 void loop()
 {
   lines();
-  //seeker();
-  //angleFix();
+  seeker();
+  angleFix();
   
   /*if(digitalRead(resetSetPoint) == HIGH)
   {
