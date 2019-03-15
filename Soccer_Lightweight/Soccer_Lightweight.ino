@@ -42,8 +42,6 @@ const int motor2B = 5;
 const int motor3A = 6;
 const int motor3B = 7;
 
-const int recoil;
-
 /* Nano Communication */
 const int nanoPin1 = 52; 
 const int nanoPin2 = 50;
@@ -132,7 +130,7 @@ void setup()
 void loop()
 {
   //lines();
-  seeker();
+  //seeker();
   angleFix();
   
   /*if(digitalRead(resetSetPoint) == HIGH)
