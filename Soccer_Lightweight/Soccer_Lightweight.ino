@@ -42,6 +42,8 @@ const int motor2B = 5;
 const int motor3A = 6;
 const int motor3B = 7;
 
+const int recoil;
+
 /* Nano Communication */
 const int nanoPin1 = 52; 
 const int nanoPin2 = 50;
@@ -60,6 +62,10 @@ const int ledPin = 39;
 const int ledF = 36;
 const int ledR = 38;
 const int ledL = 40;
+
+/*Line loop*/
+bool lineLoop = false;
+unsigned long long lineTime = 0;
 
 void setup()
 {
