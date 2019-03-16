@@ -42,7 +42,7 @@ const int motor2B = 5;
 const int motor3A = 6;
 const int motor3B = 7;
 
-/* Nano Communication */
+/* Photoresisters Variables */
 const int nanoPin1 = 52; 
 const int nanoPin2 = 50;
 const int nanoPin3 = 48;
@@ -53,17 +53,20 @@ bool nano2 = 0;
 bool nano3 = 0;
 bool nano4 = 0;
 bool nano5 = 0;
+
+int lineCase = 0;
 unsigned long long lineDelayTime = 0;
+int lineRepetitions[7] = {0, 0, 0, 0, 0, 0, 0};
+unsigned long long lineRepetitionsTime[7] = {0, 0, 0, 0, 0, 0, 0};
+
+bool lineLoop = false;
+unsigned long long lineTime = 0;
 
 /* LED */
 const int ledPin = 39;
 const int ledF = 36;
 const int ledR = 38;
 const int ledL = 40;
-
-/*Line loop*/
-bool lineLoop = false;
-unsigned long long lineTime = 0;
 
 void setup()
 {
@@ -129,8 +132,8 @@ void setup()
 
 void loop()
 {
-  //lines();
-  //seeker();
+  lines();
+  seeker();
   angleFix();
   
   /*if(digitalRead(resetSetPoint) == HIGH)

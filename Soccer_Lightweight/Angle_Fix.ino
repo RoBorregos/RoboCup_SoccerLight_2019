@@ -52,7 +52,6 @@ void angleFix()
       }
   
       motors(6);
-      delayMicroseconds(1);
     }
   }
 }
