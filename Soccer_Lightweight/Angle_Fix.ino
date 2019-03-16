@@ -4,7 +4,7 @@ void angleCheck()
   bno.getEvent(&event);
   orientationAngle = ((int(event.orientation.x) - setPoint) + 360) % 360;
 
-  Serial.println(orientationAngle);
+ // Serial.println(orientationAngle);
 }
 
 void angleFix()
@@ -52,7 +52,6 @@ void angleFix()
       }
   
       motors(6);
-      delayMicroseconds(1);
     }
   }
 }

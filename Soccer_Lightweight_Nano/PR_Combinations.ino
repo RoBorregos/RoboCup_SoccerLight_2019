@@ -10,7 +10,11 @@ void communicationToMega(bool a, bool b, bool c, bool d, bool e)
 void PR_Combinations()
 {
   lines();
+<<<<<<< HEAD
   int range = 850; //Light Tolerance of the PRs
+=======
+  int range = 825;
+>>>>>>> 4847fe0d733eba61ea86482adbe01e74be0e30ff
   Serial.print("In PR_Combinations");
   
   if(!(PRs[0] > range || PRs[1] > range || PRs[2] > range || PRs[3] > range || PRs[4] > range) && !(PRs[5] > range || PRs[6] > range || PRs[7] > range || PRs[8] > range || PRs[9] > range) && !(PRs[10] > range || PRs[11] > range || PRs[12] > range || PRs[13] > range || PRs[14] > range))
