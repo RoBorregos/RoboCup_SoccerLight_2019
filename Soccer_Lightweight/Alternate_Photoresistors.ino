@@ -1,4 +1,4 @@
-/*void readLines()
+void readLines()
 {
   nano1 = digitalRead(nanoPin1);
   nano2 = digitalRead(nanoPin2);
@@ -18,6 +18,23 @@
   Serial.println();
 }
 
+
+void lineLoop() 
+{
+ bool R =  (nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 0); //combination for the right plate
+ bool L =  (nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 1); //combination for the left plate
+
+  if (R == true)
+  {
+    lineTime = millis();
+    while ((millis() <= lineTime + 500) && (L == true))
+    {
+      motors(4);
+      delay(250);
+      //R = false;
+    }
+  }
+}
 
 void lines()
 {
@@ -46,7 +63,7 @@ void lines()
     {
       InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
       lineLoop = (InfraredBall.Direction == 3 || InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6 || InfraredBall.Direction == 7);
-    }
+    }*/
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 0)
   {
@@ -64,12 +81,12 @@ void lines()
       motors(5);
     }
 
-    motors(6);
+    /*motors(6);
     while(lineLoop)
     {
       InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
       lineLoop = (InfraredBall.Direction == 6 || InfraredBall.Direction == 7 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
-    }
+    }*/
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 1)
   {
@@ -115,7 +132,7 @@ void lines()
     {
       InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
       lineLoop = (InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6 || InfraredBall.Direction == 7 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
-    }
+    }*/
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 1)
   {
@@ -138,7 +155,7 @@ void lines()
     {
       InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
       lineLoop = (InfraredBall.Direction == 0 || InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
-    }
+    }*/
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 1 && nano5 == 0)
   {
@@ -161,7 +178,7 @@ void lines()
     {
       InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
       lineLoop = (InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 3 || InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6);
-    }
+    }*/
   }
   else
   {
@@ -171,4 +188,4 @@ void lines()
     
     Serial.println("Nothing");
   }
-}*/
+}

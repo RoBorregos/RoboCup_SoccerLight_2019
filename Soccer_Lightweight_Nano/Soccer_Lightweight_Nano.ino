@@ -38,6 +38,9 @@ const int pr14 = A7;
 int PRs[15] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 int PRRanges[15];
 
+//Line Algorithm
+bool loopcase = false;
+
 void setup()
 {
   //Initialize Communication

@@ -1,4 +1,4 @@
-void getPRRanges()
+/*void getPRRanges()
 {
   delay(1000);
   lines();
@@ -17,4 +17,4 @@ void getPRRanges()
       PRRanges[j] = (PRRanges[j] + PRs[j]) / 2;
     }
   }
-}
+}*/

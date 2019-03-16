@@ -62,7 +62,10 @@ const int ledR = 38;
 const int ledL = 40;
 
 /*Line loop*/
-bool lineLoop = false;
+
+bool F = false;
+bool R = false;
+bool L = false;
 unsigned long long lineTime = 0;
 
 void setup()
@@ -129,8 +132,8 @@ void setup()
 
 void loop()
 {
-  //lines();
-  //seeker();
+  lines();
+  seeker();
   angleFix();
   
   /*if(digitalRead(resetSetPoint) == HIGH)
