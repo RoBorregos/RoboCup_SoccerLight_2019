@@ -40,14 +40,23 @@ int readLines()
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0) //Front-Right
   {
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledL, LOW);
     return 4;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 1) //Right-Left
   {
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledL, HIGH);
     return 5;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 1 && nano5 == 0) //Front-Left
   {
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledL, HIGH);
     return 6;
   }
     digitalWrite(ledF, LOW);
@@ -58,54 +67,48 @@ int readLines()
 
 void updateLine() 
 {
-  antlineCase = lineCase;
+  prevLineCase = lineCase;
   lineCase = readLines();
-  antlineDelayTime = lineDelayTime;
+  prevLineDelayTime = lineDelayTime;
   lineDelayTime = millis(); 
 }
 
 void lines()
 {
   updateLine();
-  int recoil = 350; //500
+  int lineReturnTime = 500; //500
 
-
-  if ((antlineCase != lineCase) && ((lineDelayTime - antlineDelayTime) < recoil)) //If a plate of photoresistors change in a small range of time
-    {
-      //Definir la placa frontal como 'neutral' y que solo se base en la palca opuesta
-     lineCase = antlineCase;
-    }
- 
-  else if (lineCase == 2) //Right // Definir que los movimientos acaben cuando deje de leer líneas
+  if((prevLineCase != lineCase) && ((lineDelayTime - prevLineDelayTime) < lineReturnTime)) //If a plate of photoresistors changes in a small range of time
   {
-    while (millis() <= lineDelayTime + recoil) 
-   {
-    motors(4);
-   }
+   //Definir la placa frontal como 'neutral' y que solo se base en la palca opuesta
+   lineCase = prevLineCase;
   }
-  
- else if (lineCase == 3) //Left
+  else if(lineCase == 1) //Front
   {
-    while (millis() <= lineDelayTime + recoil)
-   {
-    motors(2);
-   }
-    if ((antlineCase != lineCase) && ((lineDelayTime - antlineDelayTime) < 500)) //If a plate of photoresistors change in a small range of time
+    while(millis() <= lineDelayTime + lineReturnTime)
+    {
+      motors(3);
+    }
+  }
+  else if(lineCase == 2) //Right // Definir que los movimientos acaben cuando deje de leer líneas
+  {
+    while(millis() <= lineDelayTime + lineReturnTime) 
+    {
+      motors(4);
+    }
+  }
+  else if(lineCase == 3) //Left
+  {
+    while(millis() <= lineDelayTime + lineReturnTime)
+    {
+      motors(2);
+    }
+    /*if((prevLineCase != lineCase) && ((lineDelayTime - prevLineDelayTime) < 500)) //If a plate of photoresistors changes in a small range of time
     {
       lineCase;
-      antlineCase;
+      prevLineCase;
       motors(2);
       delay(350);
-    }
+    }*/
   }
-  
-  else if (lineCase == 1) //Front
-  {
-   while (millis() <= lineDelayTime + recoil)
-   {
-    motors(3);
-   }
-  }
-
- 
 }

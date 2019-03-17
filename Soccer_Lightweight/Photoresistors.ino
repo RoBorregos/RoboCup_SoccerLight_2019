@@ -50,7 +50,7 @@ void lines()
 {
   InfraredResult InfraredBall = InfraredSeeker::ReadAC();
   lineCase = readLines();
-  const int recoil = 500;
+  const int lineReturnTime = 500;
   
   if(lineCase == 1)
   { 
@@ -60,13 +60,13 @@ void lines()
     
     Serial.println("1");
     lineDelayTime = millis();
-    while(millis() < lineDelayTime + recoil)
+    while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(3);
       angleFix();
     }
     
-    if(millis() < lineRepetitionsTime[1] + (recoil * 1.25))
+    if(millis() < lineRepetitionsTime[1] + (lineReturnTime * 1.25))
     {
       lineRepetitions[1]++;
     }
@@ -97,13 +97,13 @@ void lines()
 
     Serial.println("2");
     lineDelayTime = millis();
-    while(millis() < lineDelayTime + recoil)
+    while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(5);
       angleFix();
     }
 
-    if(millis() < lineRepetitionsTime[2] + (recoil * 1.25))
+    if(millis() < lineRepetitionsTime[2] + (lineReturnTime * 1.25))
     {
       lineRepetitions[2]++;
     }
@@ -134,13 +134,13 @@ void lines()
 
     Serial.println("3");
     lineDelayTime = millis();
-    while(millis() < lineDelayTime + recoil)
+    while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(1);
       angleFix();
     }
 
-    if(millis() < lineRepetitionsTime[3] + (recoil * 1.25))
+    if(millis() < lineRepetitionsTime[3] + (lineReturnTime * 1.25))
     {
       lineRepetitions[3]++;
     }
@@ -171,13 +171,13 @@ void lines()
        
     Serial.println("4");
     lineDelayTime = millis();
-    while(millis() < lineDelayTime + recoil)
+    while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(4);
       angleFix();
     }
 
-    if(millis() < lineRepetitionsTime[4] + (recoil * 1.25))
+    if(millis() < lineRepetitionsTime[4] + (lineReturnTime * 1.25))
     {
       lineRepetitions[4]++;
     }
@@ -208,13 +208,13 @@ void lines()
     
     Serial.println("5");
     lineDelayTime = millis();
-    while(millis() < lineDelayTime + recoil)
+    while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(0);
       angleFix();
     }
 
-    if(millis() < lineRepetitionsTime[5] + (recoil * 1.25))
+    if(millis() < lineRepetitionsTime[5] + (lineReturnTime * 1.25))
     {
       lineRepetitions[5]++;
     }
@@ -250,13 +250,13 @@ void lines()
     
     Serial.println("6");
     lineDelayTime = millis();
-    while(millis() < lineDelayTime + recoil)
+    while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(2);
       angleFix();
     }
 
-    if(millis() < lineRepetitionsTime[6] + (recoil * 1.25))
+    if(millis() < lineRepetitionsTime[6] + (lineReturnTime * 1.25))
     {
       lineRepetitions[6]++;
     }

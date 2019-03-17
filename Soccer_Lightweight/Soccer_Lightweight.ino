@@ -26,12 +26,6 @@ const int resetSetPoint = 31;
 unsigned long long angleCheckTime = 0;
 unsigned long long angleFixTime = 0;
 
-/* TSOP Variables */
-const int TSOPSensor0 = 26;
-const int TSOPSensor10 = 24;
-int TSOPValue0 = 0;
-int TSOPValue10 = 0;
-
 /* Motors Variables */
 const int motor1A = 2;
 const int motor1B = 3;
@@ -55,8 +49,8 @@ bool nano4 = 0;
 bool nano5 = 0;
 
 int lineCase = 0;
-int antlineCase = 0;
-int antlineDelayTime = 0;
+int prevLineCase = 0;
+int prevLineDelayTime = 0;
 unsigned long long lineDelayTime = 0;
 int lineRepetitions[7] = {0, 0, 0, 0, 0, 0, 0};
 unsigned long long lineRepetitionsTime[7] = {0, 0, 0, 0, 0, 0, 0};
@@ -75,7 +69,7 @@ const int ledL = 40;
 bool F = false;
 bool R = false;
 bool L = false;
-int recoil;
+int lineReturnTime;
 //unsigned long long lineTime = 0;
 
 void setup() {
@@ -132,19 +126,16 @@ void setup() {
     delay(100);
   }
   orientationAngle = 0;
-  delay(2000);
+  delay(1000);
   sensors_event_t event;
   bno.getEvent(&event);
   setPoint = event.orientation.x;
-  Serial.println(setPoint);
 }
 
 void loop()
 {
   lines();
-  motors(1);
-  
-  //seeker();
+  seeker();
   angleFix();
   
   /*if(digitalRead(resetSetPoint) == HIGH)

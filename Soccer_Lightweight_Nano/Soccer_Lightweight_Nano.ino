@@ -73,8 +73,5 @@ void setup()
 void loop()
 {
   printLines();
-  //lines();
-  //printLCD();
   PR_Combinations();
-
 }
