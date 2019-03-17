@@ -53,6 +53,6 @@ void PR_Combinations()
   {
     communicationToMega(0, 0, 1, 1, 0);
     //digitalWrite(led, HIGH);
-    //Serial.println(" 6");
+    Serial.println(" 6");
   }
 }

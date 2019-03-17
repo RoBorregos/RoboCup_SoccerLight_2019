@@ -225,7 +225,6 @@ void lines()
     lineRepetitionsTime[5] = millis();
 
     if(lineRepetitions[5] == 3)
-
     {
       lineLoop = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();

@@ -2,9 +2,7 @@
 void seeker()
 {
   InfraredResult InfraredBall = InfraredSeeker::ReadAC();
-  //TSOPValue1 = digitalRead(TSOPSensor1);
-  //TSOPValue2 = digitalRead(TSOPSensor2);
-  Serial.println(InfraredBall.Direction);
+  //Serial.println(InfraredBall.Direction);
 
   if(InfraredBall.Direction == 1) //Back Left
   {
@@ -22,7 +20,7 @@ void seeker()
   {
     motors(4);
     lastDirAngle = 1;
-   // Serial.println("In seeker 3");
+    //Serial.println("In seeker 3");
   }
   else if(InfraredBall.Direction == 4) //Front Left
   {
@@ -33,7 +31,7 @@ void seeker()
   else if(InfraredBall.Direction == 5) //Front
   {
     motors(0);
-   // Serial.println("In seeker 5");
+    //Serial.println("In seeker 5");
   }  
   else if(InfraredBall.Direction == 6) //Front Right
   {
@@ -45,7 +43,7 @@ void seeker()
   {
     motors(2);
     lastDirAngle = 9;
-   // Serial.println("In seeker 7");
+    //Serial.println("In seeker 7");
   }
   else if(InfraredBall.Direction == 8) //Back Right
   {
@@ -64,12 +62,12 @@ void seeker()
     if(lastDirAngle == 1) //Back Left
     {
       motors(2);
-    //  Serial.println("In seeker 0");
+      //Serial.println("In seeker 0");
     }
     else if(lastDirAngle == 9) //Back Right
     {
       motors(4);
-     // Serial.println("In seeker 10");
+      //Serial.println("In seeker 10");
     }
   }
 }

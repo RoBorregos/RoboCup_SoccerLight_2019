@@ -6,7 +6,7 @@ int readLines()
   nano4 = digitalRead(nanoPin4);
   nano5 = digitalRead(nanoPin5);
   
- /* Serial.print(nano1);
+  Serial.print(nano1);
   Serial.print(" ");
   Serial.print(nano2);
   Serial.print(" ");
@@ -15,7 +15,7 @@ int readLines()
   Serial.print(nano4);
   Serial.print(" ");
   Serial.print(nano5);
-  Serial.println();*/
+  Serial.println();
 
   if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1) //Front
   {
@@ -103,12 +103,12 @@ void lines()
     {
       motors(2);
     }
-    /*if((prevLineCase != lineCase) && ((lineDelayTime - prevLineDelayTime) < 500)) //If a plate of photoresistors changes in a small range of time
-    {
-      lineCase;
-      prevLineCase;
-      motors(2);
-      delay(350);
-    }*/
+    //if((prevLineCase != lineCase) && ((lineDelayTime - prevLineDelayTime) < 500)) //If a plate of photoresistors changes in a small range of time
+    //{
+    //  lineCase;
+    //  prevLineCase;
+    //  motors(2);
+    //  delay(350);
+    //}
   }
 }

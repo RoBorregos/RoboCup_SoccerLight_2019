@@ -27,14 +27,14 @@ unsigned long long angleCheckTime = 0;
 unsigned long long angleFixTime = 0;
 
 /* Motors Variables */
-const int motor1A = 2;
-const int motor1B = 3;
+const int motor1A = 3;
+const int motor1B = 2;
 
-const int motor2A = 4;
-const int motor2B = 5;
+const int motor2A = 5;
+const int motor2B = 4;
 
-const int motor3A = 6;
-const int motor3B = 7;
+const int motor3A = 7;
+const int motor3B = 6;
 
 /* Photoresisters Variables */
 const int nanoPin1 = 52; 

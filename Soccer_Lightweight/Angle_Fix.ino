@@ -3,8 +3,7 @@ void angleCheck()
   sensors_event_t event;
   bno.getEvent(&event);
   orientationAngle = ((int(event.orientation.x) - setPoint) + 360) % 360;
-
- // Serial.println(orientationAngle);
+  //Serial.println(orientationAngle);
 }
 
 void angleFix()
@@ -15,22 +14,15 @@ void angleFix()
   {
     angleFixTime = millis();
 
-    //NOTE! Check for negative angles
-    if(orientationAngle > 25 && orientationAngle < 335) //20 - 340
+    if(orientationAngle > 20 && orientationAngle < 340) //20 - 340
     {
       if(orientationAngle <= 180)
       {
         angleCheck();
         
-        while(orientationAngle > 100)
+        while(orientationAngle > 20)
         {
           motors(8);
-          angleCheck();
-        }
-        
-        while(orientationAngle > 25 && orientationAngle <= 100)
-        {
-          halfMotors(8);
           angleCheck();
         }
       }
@@ -38,15 +30,9 @@ void angleFix()
       {
         angleCheck();
         
-        while(orientationAngle < 260)
+        while(orientationAngle < 340)
         {
           motors(7);
-          angleCheck();
-        }
-
-        while(orientationAngle < 335 && orientationAngle >= 260)
-        {
-          halfMotors(7);
           angleCheck();
         }
       }
