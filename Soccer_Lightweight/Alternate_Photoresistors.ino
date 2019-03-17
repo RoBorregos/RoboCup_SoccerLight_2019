@@ -56,49 +56,32 @@ int readLines()
   return 0;
 }
 
-
-/*void lineLoop() 
+void updateLine() 
 {
-  lineCase = readLines();
-  const int recoil = 500;
-
- bool R = (lineCase == 2); //combination for the right plate
- bool L = (lineCase == 3); //combination for the left plate
-
-  if (R == true)
-  {
-    lineTime = millis();
-    while ((millis() <= lineTime + recoil) && (L == true))
-    {
-      motors(4);
-      delay(250);
-      //R = false;
-    }
-  }
-}*/
-
-void lines()
-{
-  int recoil = 350; //500
   antlineCase = lineCase;
   lineCase = readLines();
   antlineDelayTime = lineDelayTime;
   lineDelayTime = millis(); 
+}
+
+void lines()
+{
+  updateLine();
+  int recoil = 350; //500
+
+
+  if ((antlineCase != lineCase) && ((lineDelayTime - antlineDelayTime) < recoil)) //If a plate of photoresistors change in a small range of time
+    {
+      //Definir la placa frontal como 'neutral' y que solo se base en la palca opuesta
+     lineCase = antlineCase;
+    }
  
-  if (lineCase == 2) //Right // Definir que los movimientos acaben cuando deje de leer líneas
+  else if (lineCase == 2) //Right // Definir que los movimientos acaben cuando deje de leer líneas
   {
     while (millis() <= lineDelayTime + recoil) 
    {
     motors(4);
    }
-    if ((antlineCase != lineCase) && ((lineDelayTime - antlineDelayTime) < recoil)) //If a plate of photoresistors change in a small range of time
-    {
-      //Definir la placa frontal como 'neutral' y que solo se base en la palca opuesta
-      lineCase;
-      antlineCase;
-      motors(4);
-      delay(350);
-    }
   }
   
  else if (lineCase == 3) //Left

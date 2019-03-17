@@ -72,7 +72,7 @@ void setup()
 
 void loop()
 {
-  //printLines();
+  printLines();
   //lines();
   //printLCD();
   PR_Combinations();
