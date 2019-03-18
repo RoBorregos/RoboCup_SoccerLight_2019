@@ -23,7 +23,6 @@ int DirectionAngle(byte Direction)
 Adafruit_BNO055 bno = Adafruit_BNO055();
 
 int orientationAngle = 0;
-bool normalSetPoint = true;
 int BNOSetPoint = 0;
 const int resetSetPoint = 31;
 
@@ -77,6 +76,7 @@ int lineReturnTime;
 
 /* Pixy Variables */
 Pixy2 pixy;
+bool pixyBlock = false;
 int pixySetPoint = 0;
 
 void setup() {
@@ -141,6 +141,7 @@ void setup() {
 
 void loop()
 {
+  Serial.println("hello ");
   lines();
   seeker();
   angleFix();

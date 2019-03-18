@@ -14,40 +14,85 @@ void pixyAngleCheck()
   //Serial.println(orientationAngle);
 }
 
-void angleFix()
+/*void angleFix()
 {
+  pixy.ccc.getBlocks();
+  if(pixy.ccc.numBlocks)
+  {
+    Serial.println("Pixy");
+    sensors_event_t event;
+    bno.getEvent(&event);
+    pixySetPoint = int(event.orientation.x) + (((pixy.ccc.blocks[0].m_x / 319) * 60) - 30);
+    pixyAngleCheck();
+    pixyBlock = true;
+  }
+  else
+  {
+    Serial.println("BNO");
+    BNOAngleCheck();
+    pixyBlock = false;
+  }
+  
   if(millis() > angleFixTime + 15)
   {
     angleFixTime = millis();
-
-    pixy.ccc.getBlocks();
-    if(pixy.ccc.numBlocks)
-    {
-      sensors_event_t event;
-      bno.getEvent(&event);
-      pixySetPoint = int(event.orientation.x) + (((pixy.ccc.blocks[0].m_x / 319) * 60) - 30);
-    }
 
     if(orientationAngle > 20 && orientationAngle < 340) //20 - 340
     {
       if(orientationAngle <= 180)
       {
-        pixy.ccc.numBlocks ? pixyAngleCheck() : BNOAngleCheck();
+        pixyBlock ? pixyAngleCheck() : BNOAngleCheck();
         
         while(orientationAngle > 20)
         {
           motors(8);
-          pixy.ccc.numBlocks ? pixyAngleCheck() : BNOAngleCheck();
+          pixyBlock ? pixyAngleCheck() : BNOAngleCheck();
         }
       }
       else
       {
-        pixy.ccc.numBlocks ? pixyAngleCheck() : BNOAngleCheck();
+        pixyBlock ? pixyAngleCheck() : BNOAngleCheck();
         
         while(orientationAngle < 340)
         {
           motors(7);
-          pixy.ccc.numBlocks ? pixyAngleCheck() : BNOAngleCheck();
+          pixyBlock ? pixyAngleCheck() : BNOAngleCheck();
+        }
+      }
+  
+      motors(6);
+    }
+  }
+}*/
+
+void angleFix()
+{
+  BNOAngleCheck();
+  
+  if(millis() > angleFixTime + 15)
+  {
+    angleFixTime = millis();
+
+    if(orientationAngle > 20 && orientationAngle < 340) //20 - 340
+    {
+      if(orientationAngle <= 180)
+      {
+        BNOAngleCheck();
+        
+        while(orientationAngle > 20)
+        {
+          motors(8);
+          BNOAngleCheck();
+        }
+      }
+      else
+      {
+        BNOAngleCheck();
+        
+        while(orientationAngle < 340)
+        {
+          motors(7);
+          BNOAngleCheck();
         }
       }
   
