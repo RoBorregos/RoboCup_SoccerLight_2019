@@ -1,4 +1,4 @@
-int readLines()
+/*int readLines()
 {
   nano1 = digitalRead(nanoPin1);
   nano2 = digitalRead(nanoPin2);

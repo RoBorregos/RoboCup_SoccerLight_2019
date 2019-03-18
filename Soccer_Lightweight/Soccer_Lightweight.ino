@@ -1,9 +1,12 @@
+//#include <Pixy.h>
+#include <Pixy2.h>
 #include <HTInfraredSeeker.h>
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
 #include <math.h>
+
 
 /* IRSeeker Variables */
 int currentSeekerAngle = 0;
@@ -20,7 +23,8 @@ int DirectionAngle(byte Direction)
 Adafruit_BNO055 bno = Adafruit_BNO055();
 
 int orientationAngle = 0;
-int setPoint = 0;
+bool normalSetPoint = true;
+int BNOSetPoint = 0;
 const int resetSetPoint = 31;
 
 unsigned long long angleCheckTime = 0;
@@ -64,13 +68,16 @@ const int ledF = 53;
 const int ledR = 49;
 const int ledL = 51;
 
-/*Line loop*/
-
+/* Line loop */
 bool F = false;
 bool R = false;
 bool L = false;
 int lineReturnTime;
 //unsigned long long lineTime = 0;
+
+/* Pixy Variables */
+Pixy2 pixy;
+int pixySetPoint = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -129,14 +136,14 @@ void setup() {
   delay(1000);
   sensors_event_t event;
   bno.getEvent(&event);
-  setPoint = event.orientation.x;
+  BNOSetPoint = event.orientation.x;
 }
 
 void loop()
 {
   lines();
   seeker();
-  //angleFix();
+  angleFix();
 
   /*if(digitalRead(resetSetPoint) == HIGH)
   {
