@@ -57,5 +57,5 @@ void printLines()
   }
   Serial.println();
   Serial.println();
-  delay(100);
+  delay(1000);
 }

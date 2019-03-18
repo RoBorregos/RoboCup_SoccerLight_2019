@@ -1,4 +1,4 @@
-/*int readLines()
+int readLines()
 {
   nano1 = digitalRead(nanoPin1);
   nano2 = digitalRead(nanoPin2);
@@ -19,29 +19,50 @@
 
   if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 0 && nano5 == 1)
   {
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledL, LOW);
     return 1;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 0)
   {
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledL, LOW);
     return 2;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 0 && nano4 == 1 && nano5 == 1)
   {
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledL, HIGH);
     return 3;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 0)
   {
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledL, LOW);
     return 4;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 0 && nano5 == 1)
   {
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledF, LOW);
+    digitalWrite(ledL, HIGH);
     return 5;
   }
   else if(nano1 == 0 && nano2 == 0 && nano3 == 1 && nano4 == 1 && nano5 == 0)
   {
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledF, HIGH);
+    digitalWrite(ledL, HIGH);
     return 6;
   }
 
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledF, LOW);
+  digitalWrite(ledL, LOW);
   return 0;
 }
 
@@ -57,15 +78,8 @@ void lines()
     digitalWrite(ledF, HIGH);
     digitalWrite(ledR, LOW);
     digitalWrite(ledL, LOW);
-    
     Serial.println("1");
-    lineDelayTime = millis();
-    while(millis() < lineDelayTime + lineReturnTime)
-    {
-      motors(3);
-      angleFix();
-    }
-    
+
     if(millis() < lineRepetitionsTime[1] + (lineReturnTime * 1.25))
     {
       lineRepetitions[1]++;
@@ -75,33 +89,36 @@ void lines()
       lineRepetitions[1] = 0;
     }
     lineRepetitionsTime[1] = millis();
-
-    if(lineRepetitions[1] == 3)
+    
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + lineReturnTime)
     {
-      lineLoop = true;
+      motors(3);
+      angleFix();
+    }
+
+    /*if(lineRepetitions[1] == 3)
+    {
+      ballOutside = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();
       motors(6);
-      while(lineLoop)
+      
+      while(ballOutside)
       {
         InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
-        lineLoop = (InfraredBall.Direction == 3 || InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6 || InfraredBall.Direction == 7);
+        ballOutside = (InfraredBall.Direction == 3 || InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6 || InfraredBall.Direction == 7);
         angleFix();
       }
-    }
+
+      lineRepetitions[1] = 0;
+    }*/
   }
   else if(lineCase == 2)
   {
     digitalWrite(ledF, LOW);
     digitalWrite(ledR, HIGH);
     digitalWrite(ledL, LOW);
-
     Serial.println("2");
-    lineDelayTime = millis();
-    while(millis() < lineDelayTime + lineReturnTime)
-    {
-      motors(5);
-      angleFix();
-    }
 
     if(millis() < lineRepetitionsTime[2] + (lineReturnTime * 1.25))
     {
@@ -112,33 +129,36 @@ void lines()
       lineRepetitions[2] = 0;
     }
     lineRepetitionsTime[2] = millis();
-
-    if(lineRepetitions[2] == 3)
+    
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + lineReturnTime)
     {
-      lineLoop = true;
+      motors(5);
+      angleFix();
+    }
+
+    /*if(lineRepetitions[2] == 3)
+    {
+      ballOutside = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();
       motors(6);
-      while(lineLoop)
+      
+      while(ballOutside)
       {
         InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
-        lineLoop = (InfraredBall.Direction == 6 || InfraredBall.Direction == 7 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
+        ballOutside = (InfraredBall.Direction == 6 || InfraredBall.Direction == 7 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
         angleFix();
       }
-    }
+
+      lineRepetitions[2] = 0;
+    }*/
   }
   else if(lineCase == 3)
   {
     digitalWrite(ledF, LOW);
     digitalWrite(ledR, LOW);
     digitalWrite(ledL, HIGH);
-
     Serial.println("3");
-    lineDelayTime = millis();
-    while(millis() < lineDelayTime + lineReturnTime)
-    {
-      motors(1);
-      angleFix();
-    }
 
     if(millis() < lineRepetitionsTime[3] + (lineReturnTime * 1.25))
     {
@@ -149,33 +169,36 @@ void lines()
       lineRepetitions[3] = 0;
     }
     lineRepetitionsTime[3] = millis();
-
-    if(lineRepetitions[3] == 3)
+    
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + lineReturnTime)
     {
-      lineLoop = true;
+      motors(1);
+      angleFix();
+    }
+
+    /*if(lineRepetitions[3] == 3)
+    {
+      ballOutside = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();
       motors(6);
-      while(lineLoop)
+      
+      while(ballOutside)
       {
         InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
-        lineLoop = (InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 3 || InfraredBall.Direction == 4);
+        ballOutside = (InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 3 || InfraredBall.Direction == 4);
         angleFix();
       }
-    }
+
+      lineRepetitions[3] = 0;
+    }*/
   }
   else if(lineCase == 4)
   {
     digitalWrite(ledF, HIGH);
     digitalWrite(ledR, HIGH);
     digitalWrite(ledL, LOW);
-       
     Serial.println("4");
-    lineDelayTime = millis();
-    while(millis() < lineDelayTime + lineReturnTime)
-    {
-      motors(4);
-      angleFix();
-    }
 
     if(millis() < lineRepetitionsTime[4] + (lineReturnTime * 1.25))
     {
@@ -186,27 +209,47 @@ void lines()
       lineRepetitions[4] = 0;
     }
     lineRepetitionsTime[4] = millis();
-
-    if(lineRepetitions[4] == 3)
+    
+    lineDelayTime = millis();
+    while(millis() < lineDelayTime + lineReturnTime)
     {
-      lineLoop = true;
+      motors(4);
+      angleFix();
+    }
+
+    /*if(lineRepetitions[4] == 3)
+    {
+      ballOutside = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();
       motors(6);
-      while(lineLoop)
+      
+      while(ballOutside)
       {
         InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
-        lineLoop = (InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6 || InfraredBall.Direction == 7 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
+        ballOutside = (InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6 || InfraredBall.Direction == 7 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
         angleFix();
       }
-    }
+
+      lineRepetitions[4] = 0;
+    }*/
   }
   else if(lineCase == 5)
   {
     digitalWrite(ledF, LOW);
     digitalWrite(ledR, HIGH);
     digitalWrite(ledL, HIGH);
-    
     Serial.println("5");
+
+    if(millis() < lineRepetitionsTime[5] + (lineReturnTime * 1.25))
+    {
+      lineRepetitions[5]++;
+    }
+    else
+    {
+      lineRepetitions[5] = 0;
+    }
+    lineRepetitionsTime[5] = millis();
+
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
@@ -224,30 +267,39 @@ void lines()
     }
     lineRepetitionsTime[5] = millis();
 
-    if(lineRepetitions[5] == 3)
+    /*if(lineRepetitions[5] == 3)
     {
-      lineLoop = true;
+      ballOutside = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();
       motors(6);
-      while(lineLoop)
+      
+      while(ballOutside)
       {
         InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
-        lineLoop = (InfraredBall.Direction == 0 || InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
+        ballOutside = (InfraredBall.Direction == 0 || InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 8 || InfraredBall.Direction == 9);
         angleFix();
       }
-    }
+
+      lineRepetitions[5] = 0;
+    }*/
   }
   else if(lineCase == 6)
   {
     digitalWrite(ledR, LOW);
     digitalWrite(ledF, HIGH);
     digitalWrite(ledL, HIGH);
-    
-
-    //lineLoop = true;
-    //InfraredResult InfraredBall = InfraredSeeker::ReadAC();
-    
     Serial.println("6");
+
+    if(millis() < lineRepetitionsTime[6] + (lineReturnTime * 1.25))
+    {
+      lineRepetitions[6]++;
+    }
+    else
+    {
+      lineRepetitions[6] = 0;
+    }
+    lineRepetitionsTime[6] = millis();
+
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
@@ -265,18 +317,21 @@ void lines()
     }
     lineRepetitionsTime[6] = millis();
 
-    if(lineRepetitions[6] == 3)
+    /*if(lineRepetitions[6] == 3)
     {
-      lineLoop = true;
+      ballOutside = true;
       InfraredResult InfraredBall = InfraredSeeker::ReadAC();
       motors(6);
-      while(lineLoop)
+      
+      while(ballOutside)
       {
         InfraredResult InfraredBall = InfraredSeeker::ReadAC(); 
-        lineLoop = (InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 3 || InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6);
+        ballOutside = (InfraredBall.Direction == 1 || InfraredBall.Direction == 2 || InfraredBall.Direction == 3 || InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6);
         angleFix();
       }
-    }
+
+      lineRepetitions[6] = 0;
+    }*/
   }
   else
   {
@@ -286,4 +341,4 @@ void lines()
     
     Serial.println("Nothing");
   }
-}*/
+}

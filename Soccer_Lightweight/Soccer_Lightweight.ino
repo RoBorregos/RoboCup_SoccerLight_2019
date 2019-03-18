@@ -55,14 +55,14 @@ unsigned long long lineDelayTime = 0;
 int lineRepetitions[7] = {0, 0, 0, 0, 0, 0, 0};
 unsigned long long lineRepetitionsTime[7] = {0, 0, 0, 0, 0, 0, 0};
 
-bool lineLoop = false;
+bool ballOutside = false;
 unsigned long long lineTime = 0;
 
 /* LED */
 const int ledPin = 39;
-const int ledF = 36;
-const int ledR = 38;
-const int ledL = 40;
+const int ledF = 53;
+const int ledR = 49;
+const int ledL = 51;
 
 /*Line loop*/
 
@@ -136,8 +136,8 @@ void loop()
 {
   lines();
   seeker();
-  angleFix();
-  
+  //angleFix();
+
   /*if(digitalRead(resetSetPoint) == HIGH)
   {
     sensors_event_t event;

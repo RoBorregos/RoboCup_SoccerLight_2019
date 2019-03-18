@@ -1,6 +1,6 @@
 void motors(int dir)
 {
-  int power = 255;
+  int power = 127;
   
   if(dir == 0) //Forward
   {

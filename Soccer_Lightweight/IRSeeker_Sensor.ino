@@ -59,14 +59,14 @@ void seeker()
   }
   else if(InfraredBall.Direction == 0) //Back
   {
-    if(lastDirAngle == 1) //Back Left
+    if(lastDirAngle == 1) //Right Forward
     {
-      motors(2);
+      motors(1);
       //Serial.println("In seeker 0");
     }
-    else if(lastDirAngle == 9) //Back Right
+    else if(lastDirAngle == 9) //Left Forward
     {
-      motors(4);
+      motors(5);
       //Serial.println("In seeker 10");
     }
   }
