@@ -1,15 +1,13 @@
 void seekerCalibration()
 { 
-  while(seekerStart)
+  if(seekerStart)
   {
-    Serial.begin(9600);
     Serial.println("HiTechnic IRSeeker V2");
     Serial.println();
     Serial.println();
     Serial.println("Dir\tAngle\tStrength");
     Serial.println();
     InfraredSeeker::Initialize();
-
     seekerStart = false;
   }
  
@@ -20,5 +18,13 @@ void seekerCalibration()
   Serial.print("\t");
   Serial.print(InfraredBall.Strength);
   Serial.println();
+  if(InfraredBall.Direction == 4 || InfraredBall.Direction == 5 || InfraredBall.Direction == 6)
+  {
+    digitalWrite(ledPin, HIGH);
+  }
+  else
+  {
+    digitalWrite(ledPin, LOW);
+  }
   delay(100);
 }

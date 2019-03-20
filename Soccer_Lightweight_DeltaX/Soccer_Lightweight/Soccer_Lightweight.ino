@@ -1,4 +1,3 @@
-//#include <Pixy.h>
 #include <Pixy2.h>
 #include <HTInfraredSeeker.h>
 #include <Wire.h>
@@ -6,7 +5,6 @@
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
 #include <math.h>
-
 
 /* IRSeeker Variables */
 int currentSeekerAngle = 0;
@@ -40,8 +38,8 @@ const int motor3A = 7;
 const int motor3B = 6;
 
 /* Photoresisters Variables */
-const int nanoPin1 = 52; 
-const int nanoPin2 = 50;
+//const int nanoPin1 = 52; 
+//const int nanoPin2 = 50;
 const int nanoPin3 = 48;
 const int nanoPin4 = 46;
 const int nanoPin5 = 44;
@@ -63,9 +61,9 @@ unsigned long long lineTime = 0;
 
 /* LED */
 const int ledPin = 39;
-const int ledF = 53;
+const int ledF = 45; //53
 const int ledR = 49;
-const int ledL = 51;
+const int ledL = 47;
 
 /* Line loop */
 bool F = false;
@@ -104,8 +102,8 @@ void setup() {
   pinMode(ledL, OUTPUT);
 
   /* Photoresistors Setup */
-  pinMode(nano1, INPUT);
-  pinMode(nano2, INPUT);
+  //pinMode(nano1, INPUT);
+  //pinMode(nano2, INPUT);
   pinMode(nano3, INPUT);
   pinMode(nano4, INPUT);
   pinMode(nano5, INPUT);
@@ -115,6 +113,9 @@ void setup() {
 
   /* BNO055 Calibration Check */
   Adafruit_BNO055 BNO055;
+
+  /*Pixy Init*/
+  pixy.init();
   
   while(orientationStatus() != 3)
   {
@@ -141,7 +142,6 @@ void setup() {
 
 void loop()
 {
-  Serial.println("hello ");
   lines();
   seeker();
   angleFix();

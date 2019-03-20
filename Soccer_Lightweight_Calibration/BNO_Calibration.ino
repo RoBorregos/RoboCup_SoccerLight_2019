@@ -1,6 +1,6 @@
 void BNOCalibration()
 {
-  while(BNOStart)
+  if(BNOStart)
   {
     Serial.begin(9600);
     Serial.println("Orientation Sensor Test"); Serial.println("");

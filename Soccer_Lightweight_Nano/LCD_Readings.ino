@@ -1,4 +1,4 @@
-/*void printLCD(){
+void printLCD(){
   String aux;
   int val;
   lcd.setCursor(0,0);
@@ -38,4 +38,4 @@
     }
     lcd.print(aux);
   }
-}*/
+}

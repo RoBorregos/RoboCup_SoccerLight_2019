@@ -1,7 +1,7 @@
 int readLines()
 {
-  nano1 = digitalRead(nanoPin1);
-  nano2 = digitalRead(nanoPin2);
+  //nano1 = digitalRead(nanoPin1);
+  //nano2 = digitalRead(nanoPin2);
   nano3 = digitalRead(nanoPin3);
   nano4 = digitalRead(nanoPin4);
   nano5 = digitalRead(nanoPin5);
@@ -69,8 +69,8 @@ int readLines()
 
 void lines()
 {
-  InfraredResult InfraredBall = InfraredSeeker::ReadAC();
   lineCase = readLines();
+  blocks = pixy.getBlocks();
   const int lineReturnTime = 500;
   
   if(lineCase == 1)
@@ -90,6 +90,7 @@ void lines()
     }
     lineRepetitionsTime[1] = millis();
     
+    motors(6);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
@@ -130,10 +131,18 @@ void lines()
     }
     lineRepetitionsTime[2] = millis();
     
+    motors(6);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
-      motors(5);
+      if(blocks)
+      {
+        pixy.blocks[0].x > 30 ? motors(4) : motors(5);
+      }
+      else
+      {
+        motors(4);
+      }
       angleFix();
     }
 
@@ -170,10 +179,18 @@ void lines()
     }
     lineRepetitionsTime[3] = millis();
     
+    motors(6);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
-      motors(1);
+      if(blocks)
+      {
+        pixy.blocks[0].y > 30 ? motors(2) : motors(1);
+      }
+      else
+      {
+        motors(2);
+      }
       angleFix();
     }
 
@@ -210,6 +227,7 @@ void lines()
     }
     lineRepetitionsTime[4] = millis();
     
+    motors(6);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
@@ -250,22 +268,13 @@ void lines()
     }
     lineRepetitionsTime[5] = millis();
 
+    motors(6);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(0);
       angleFix();
     }
-
-    if(millis() < lineRepetitionsTime[5] + (lineReturnTime * 1.25))
-    {
-      lineRepetitions[5]++;
-    }
-    else
-    {
-      lineRepetitions[5] = 0;
-    }
-    lineRepetitionsTime[5] = millis();
 
     /*if(lineRepetitions[5] == 3)
     {
@@ -300,22 +309,13 @@ void lines()
     }
     lineRepetitionsTime[6] = millis();
 
+    motors(6);
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
       motors(2);
       angleFix();
     }
-
-    if(millis() < lineRepetitionsTime[6] + (lineReturnTime * 1.25))
-    {
-      lineRepetitions[6]++;
-    }
-    else
-    {
-      lineRepetitions[6] = 0;
-    }
-    lineRepetitionsTime[6] = millis();
 
     /*if(lineRepetitions[6] == 3)
     {
