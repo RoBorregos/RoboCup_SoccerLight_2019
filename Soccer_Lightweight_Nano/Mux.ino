@@ -12,8 +12,8 @@ void lines()
 { 
   //Photoresistor Plate 1 --- Frontal Plate
   PRs[0] = analogRead(pr10);
-  PRs[1] = 0; //analogRead(pr11);
-  PRs[2] = 0; //analogRead(pr12);
+  PRs[1] = analogRead(pr11);
+  PRs[2] = analogRead(pr12);
   PRs[3] = analogRead(pr13);
   PRs[4] = analogRead(pr14);
   
@@ -21,7 +21,7 @@ void lines()
   PRs[5] = MUX(0, 0, 0);
   PRs[6] = MUX(0, 0, 1);
   PRs[7] = MUX(0, 1, 0); //5
-  PRs[8] = MUX(0, 1, 1);//6
+  PRs[8] = MUX(0, 1, 1); //6
   PRs[9] = MUX(1, 0, 0);
   
   //Photoresistor Plate 3 --- Left Plate

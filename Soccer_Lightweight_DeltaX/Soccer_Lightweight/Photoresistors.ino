@@ -137,7 +137,14 @@ void lines()
     {
       if(pixy.ccc.numBlocks)
       {
-        pixy.ccc.blocks[0].m_y > 50 ? motors(4) : motors(5);
+        for(int i = 0; i < pixy.ccc.numBlocks; i++)
+        {
+          if(pixy.ccc.blocks[i].m_signature == 1)
+          {
+            pixy.ccc.blocks[i].m_y > 100 ? motors(4) : motors(5);
+            break;
+          }
+        }
       }
       else
       {
@@ -185,7 +192,14 @@ void lines()
     {
       if(pixy.ccc.numBlocks)
       {
-        pixy.ccc.blocks[0].m_y > 50 ? motors(2) : motors(1);
+        for(int i = 0; i < pixy.ccc.numBlocks; i++)
+        {
+          if(pixy.ccc.blocks[i].m_signature == 1)
+          {
+            pixy.ccc.blocks[i].m_y > 100 ? motors(2) : motors(1);
+            break;
+          }
+        }
       }
       else
       {

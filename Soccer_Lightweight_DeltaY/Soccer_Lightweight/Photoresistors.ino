@@ -137,7 +137,14 @@ void lines()
     {
       if(blocks)
       {
-        pixy.blocks[0].x > 30 ? motors(4) : motors(5);
+        for(int i = 0; i < blocks; i++)
+        {
+          if(pixy.blocks[i].signature == 1)
+          {
+            pixy.blocks[0].x > 30 ? motors(4) : motors(5);
+            break;
+          }
+        }
       }
       else
       {
@@ -185,7 +192,14 @@ void lines()
     {
       if(blocks)
       {
-        pixy.blocks[0].y > 30 ? motors(2) : motors(1);
+        for(int i = 0; i < blocks; i++)
+        {
+          if(pixy.blocks[i].signature == 1)
+          {
+            pixy.blocks[0].y > 30 ? motors(2) : motors(1);
+            break;
+          }
+        }
       }
       else
       {

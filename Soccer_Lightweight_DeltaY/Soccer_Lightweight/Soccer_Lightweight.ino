@@ -65,9 +65,9 @@ unsigned long long lineTime = 0;
 
 /* LED */
 const int ledPin = 43;
-const int ledF = 45;
-const int ledR = 49;
-const int ledL = 47;
+const int ledF = 47;
+const int ledR = 45;
+const int ledL = 49;
 
 /* Line loop */
 bool F = false;

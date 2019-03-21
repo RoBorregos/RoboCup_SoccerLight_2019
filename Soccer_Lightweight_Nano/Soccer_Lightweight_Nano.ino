@@ -73,5 +73,4 @@ void setup()
 void loop()
 {
   PR_Combinations();
-  printLines();
 }

@@ -1,4 +1,4 @@
-void pixy1Calibration()
+/*void pixy1Calibration()
 {
   Pixy pixy;
   if(pixy1Start)
@@ -19,4 +19,4 @@ void pixy1Calibration()
     Serial.println(pixy.blocks[0].y);
     delay(100);
   }
-}
+}*/
