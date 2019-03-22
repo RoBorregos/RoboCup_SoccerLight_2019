@@ -65,9 +65,9 @@ unsigned long long lineTime = 0;
 
 /* LED */
 const int ledPin = 43;
-const int ledF = 47;
-const int ledR = 45;
-const int ledL = 49;
+const int ledF = 49;
+const int ledR = 47;
+const int ledL = 45;
 
 /* Line loop */
 bool F = false;
@@ -81,6 +81,7 @@ Pixy pixy;
 uint16_t blocks;
 bool pixyBlock = false;
 int pixySetPoint = 0;
+int pixyBlockY = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -122,7 +123,7 @@ void setup() {
   /*Pixy Init*/
   pixy.init();
   
-  /*while(orientationStatus() != 3)
+  while(orientationStatus() != 3)
   {
     digitalWrite(ledPin, HIGH);
     delay(1000);
@@ -142,15 +143,15 @@ void setup() {
   delay(1000);
   sensors_event_t event;
   bno.getEvent(&event);
-  BNOSetPoint = event.orientation.x;*/
+  BNOSetPoint = event.orientation.x;
 }
 
 void loop()
 {
-  //lines();
-  //seeker();
-  //angleFix();
-  readLines();
+  lines();
+  seeker();
+  angleFix();
+
   /*if(digitalRead(resetSetPoint) == HIGH)
   {
     sensors_event_t event;

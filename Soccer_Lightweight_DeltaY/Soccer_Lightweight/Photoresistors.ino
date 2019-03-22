@@ -94,7 +94,22 @@ void lines()
     lineDelayTime = millis();
     while(millis() < lineDelayTime + lineReturnTime)
     {
-      motors(3);
+      if(blocks)
+      {
+        for(int i = 0; i < blocks; i++)
+        {
+          if(pixy.blocks[i].signature == 1)
+          {
+            pixyBlockY = pixy.blocks[0].y;
+            pixyBlockY > 50 ? motors(3) : motors(0);
+            break;
+          }
+        }
+      }
+      else
+      {
+        pixyBlockY > 50 ? motors(3) : motors(0);
+      }
       angleFix();
     }
 
@@ -141,14 +156,15 @@ void lines()
         {
           if(pixy.blocks[i].signature == 1)
           {
-            pixy.blocks[0].x > 30 ? motors(4) : motors(5);
+            pixyBlockY = pixy.blocks[0].y;
+            pixyBlockY > 50 ? motors(4) : motors(5);
             break;
           }
         }
       }
       else
       {
-        motors(4);
+        pixyBlockY ? motors(4) : motors(5);
       }
       angleFix();
     }
@@ -196,14 +212,15 @@ void lines()
         {
           if(pixy.blocks[i].signature == 1)
           {
-            pixy.blocks[0].y > 30 ? motors(2) : motors(1);
+            pixyBlockY = pixy.blocks[0].y;
+            pixyBlockY > 50 ? motors(2) : motors(1);
             break;
           }
         }
       }
       else
       {
-        motors(2);
+        pixyBlockY > 50 ? motors(2) : motors(1);
       }
       angleFix();
     }

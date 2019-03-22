@@ -1,12 +1,12 @@
-/*#include <PixySPI_SS.h>
+#include <PixySPI_SS.h>
 #include <PixyI2C.h>
 #include <Pixy.h>
 #include <TPixy.h>
-#include <PixyUART.h>*/
+#include <PixyUART.h>
 
 #include <Adafruit_BNO055.h>
 #include <LiquidCrystal_I2C.h>
-#include <Pixy2.h>
+//#include <Pixy2.h>
 #include <HTInfraredSeeker.h>
 #include <Wire.h>
 
@@ -51,7 +51,7 @@ void loop()
   //BNOCalibration();
   //LCDCalibration();
   //PRCalibration();
-  //pixy1Calibration();
-  pixy2Calibration();
+  pixy1Calibration();
+  //pixy2Calibration();
   //seekerCalibration();
 }

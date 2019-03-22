@@ -76,6 +76,7 @@ int lineReturnTime;
 Pixy2 pixy;
 bool pixyBlock = false;
 int pixySetPoint = 0;
+int pixyBlockY = 0;
 
 void setup() {
   Serial.begin(9600);
