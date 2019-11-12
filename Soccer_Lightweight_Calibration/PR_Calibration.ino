@@ -1,5 +1,13 @@
 int MUX(bool a, bool b, bool c)
 {
+  /*Multiplexer Reading*******************************************
+   * 
+   *  This function returns the reading of a multiplexer pin.
+   *  It returns the value of a photoresistor.
+   *  
+   **************************************************************/
+
+  //Write S0, S1, and S2 with parameters to then return respective photoresistor value
   digitalWrite(s0, a);
   digitalWrite(s1, b);
   digitalWrite(s2, c);
@@ -10,6 +18,17 @@ int MUX(bool a, bool b, bool c)
 
 void PRCalibration()
 {
+  /*Photoresistors Calibration************************************
+   * 
+   *  This is the calibration function for the photoresistors.
+   *  It reads 15 photoresistors and stores them in the PRs array.
+   *    PRs[0-4] and PRs[13-14] are analog pins.
+   *    PRs[5-12] are connected to a multiplexer and call the MUX() function.
+   *  Then the array is printed.
+   *  
+   **************************************************************/
+
+  //Read photoresistors
   PRs[0] = analogRead(pr10);
   PRs[1] = analogRead(pr11);
   PRs[2] = analogRead(pr12);
@@ -26,11 +45,11 @@ void PRCalibration()
   PRs[13] = analogRead(pr8); 
   PRs[14] = analogRead(pr9);
 
+  //Print photoresistor values
   for (int i = 0; i<=14; i++)
   {
     Serial.print(PRs[i]);
     Serial.print(" ");
   }
-  
   Serial.println();
 }

@@ -9,6 +9,9 @@
 /* IRSeeker Variables */
 int currentSeekerAngle = 0;
 int lastDirAngle = 0;
+unsigned long long seekerDirectionTime = 0;
+int lastMotorsDir = 0;
+int seekerDirection = 0;
 
 int DirectionAngle(byte Direction)
 {
@@ -37,7 +40,7 @@ const int motor2B = 4;
 const int motor3A = 7;
 const int motor3B = 6;
 
-/* Photoresisters Variables */
+/* Photoresistors Variables */
 //const int nanoPin1 = 52; 
 //const int nanoPin2 = 50;
 const int nanoPin3 = 48;
@@ -60,7 +63,7 @@ bool ballOutside = false;
 unsigned long long lineTime = 0;
 
 /* LED */
-const int ledPin = 39;
+const int ledPin = 43;
 const int ledF = 45; //53
 const int ledR = 49;
 const int ledL = 47;

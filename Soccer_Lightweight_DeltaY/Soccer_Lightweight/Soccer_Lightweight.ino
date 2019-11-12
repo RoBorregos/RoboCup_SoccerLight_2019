@@ -13,6 +13,9 @@
 /* IRSeeker Variables */
 int currentSeekerAngle = 0;
 int lastDirAngle = 0;
+int seekerDirectionTime = 0;
+int lastMotorsDir = 0;
+int seekerDirection = 0;
 
 int DirectionAngle(byte Direction)
 {

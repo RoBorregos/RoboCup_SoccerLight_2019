@@ -70,31 +70,63 @@ void angleFix()
   if(millis() > angleFixTime + 15)
   {
     angleFixTime = millis();
+    InfraredResult InfraredBall = InfraredSeeker::ReadAC();
 
-    if(orientationAngle > 20 && orientationAngle < 340) //20 - 340
+    if(false) //InfraredBall.Direction == 5
     {
-      if(orientationAngle <= 180)
+      if(orientationAngle > 15 && orientationAngle < 345 )
       {
-        BNOAngleCheck();
-        
-        while(orientationAngle > 20)
+        if(orientationAngle <= 180)
         {
-          motors(8);
           BNOAngleCheck();
+          
+          while(orientationAngle > 15)
+          {
+            motors(8);
+            BNOAngleCheck();
+          }
         }
+        else
+        {
+          BNOAngleCheck();
+          
+          while(orientationAngle < 345)
+          {
+            motors(7);
+            BNOAngleCheck();
+          }
+        }
+    
+        motors(6);
       }
-      else
+    }
+    else
+    {
+      if(orientationAngle > 20 && orientationAngle < 340 )
       {
-        BNOAngleCheck();
-        
-        while(orientationAngle < 340)
+        if(orientationAngle <= 180)
         {
-          motors(7);
           BNOAngleCheck();
+          
+          while(orientationAngle > 20)
+          {
+            motors(8);
+            BNOAngleCheck();
+          }
         }
+        else
+        {
+          BNOAngleCheck();
+          
+          while(orientationAngle < 340)
+          {
+            motors(7);
+            BNOAngleCheck();
+          }
+        }
+    
+        motors(6);
       }
-  
-      motors(6);
     }
   }
 }

@@ -1,9 +1,19 @@
 void BNOCalibration()
 {
+  /*BNO Calibration***********************************************
+   * 
+   *  This is the calibration function for the BNO055 sensor.
+   *  The setup starts the sensor and makes sure it is detected.
+   *  The rest of the body shows the orientation and calibration values.
+   *  
+   **************************************************************/
+   
+  //Setup
   if(BNOStart)
   {
     Serial.begin(9600);
-    Serial.println("Orientation Sensor Test"); Serial.println("");
+    Serial.println("Orientation Sensor Test");
+    Serial.println("");
     
     if(!bno.begin())
     {
@@ -18,6 +28,7 @@ void BNOCalibration()
     BNOStart = false;
   }
 
+  //Get event and print its orientation values on x-, y- and z-axis
   sensors_event_t event; 
   bno.getEvent(&event);
   
@@ -31,6 +42,7 @@ void BNOCalibration()
   
   delay(250);
 
+  //Get gyroscope, accelerometer, and magnetometer values to print calibration status
   uint8_t system, gyro, accel, mag;
   system = gyro = accel = mag = 0;
   bno.getCalibration(&system, &gyro, &accel, &mag);
